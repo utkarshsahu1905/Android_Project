@@ -36,14 +36,14 @@ public class Category_activity extends AppCompatActivity {
 
     public void generateCategories() {
         CategoryList.add(new CategoryModel("tech", R.drawable.tech));
-        CategoryList.add(new CategoryModel("fashion", R.drawable.bg_blue));
+        CategoryList.add(new CategoryModel("fashion", R.drawable.fashion));
         CategoryList.add(new CategoryModel("education", R.drawable.education));
         CategoryList.add(new CategoryModel("business", R.drawable.business));
         CategoryList.add(new CategoryModel("travel", R.drawable.travel));
         CategoryList.add(new CategoryModel("entertainment", R.drawable.entertainment));
-        CategoryList.add(new CategoryModel("food", R.drawable.bg_blue));
-        CategoryList.add(new CategoryModel("sports", R.drawable.bg_green));
-        CategoryList.add(new CategoryModel("gadgets", R.drawable.bg_green));
+        CategoryList.add(new CategoryModel("food", R.drawable.food));
+        CategoryList.add(new CategoryModel("sports", R.drawable.sports));
+        CategoryList.add(new CategoryModel("gadgets", R.drawable.gadgets));
         CategoryList.add(new CategoryModel("news", R.drawable.news));
         CategoryList.add(new CategoryModel("Health and fitness", R.drawable.health));
 

@@ -1,8 +1,10 @@
 package trainedge.scoop;
 
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
+import android.support.annotation.NonNull;
+import android.util.Log;
 import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -12,11 +14,27 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Button;
+import android.widget.CompoundButton;
+import android.widget.Switch;
+import android.widget.Toast;
+
+import com.facebook.AccessToken;
+import com.facebook.login.LoginManager;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 import static android.R.attr.id;
+import static android.R.attr.start;
+
 
 public class HomeActivity extends AppCompatActivity
-        implements NavigationView.OnNavigationItemSelectedListener {
+
+         implements NavigationView.OnNavigationItemSelectedListener, CompoundButton.OnCheckedChangeListener, View.OnClickListener {
+
+    private SharedPreferences pref;
+    private FirebaseAuth mAuth;
+    private FirebaseAuth.AuthStateListener mAuthListener;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,15 +42,29 @@ public class HomeActivity extends AppCompatActivity
         setContentView(R.layout.activity_home);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+        //Button lgt = (Button) findViewById(R.id.activity_logout);
 
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
+
+        mAuth = FirebaseAuth.getInstance();
+//objt
+        //lgt.setOnClickListener(this);
+
+        mAuthListener = new FirebaseAuth.AuthStateListener() {
+
             @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
+            public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
+                FirebaseUser user = firebaseAuth.getCurrentUser();
+                if (user == null) {
+                    // if (mAuth.getCurrentUser()==null){
+                    Intent logint = new Intent(HomeActivity.this, LoginActivity.class);
+                    startActivity(logint);
+                    finish();
+
+                    // }
+                }
             }
-        });
+        };
+
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
@@ -69,11 +101,33 @@ public class HomeActivity extends AppCompatActivity
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
+        if (id == R.id.activity_settings) {
+            Intent setIntent = new Intent(HomeActivity.this, Settings.class);
+            startActivity(setIntent);
             return true;
-        } else if(id == R.id.activity_about) {
+        } else if (id == R.id.activity_logout) {
+            mAuth.signOut();
+            try {
+                LoginManager.getInstance().logOut();
+                AccessToken.setCurrentAccessToken(null);
+            } catch (Exception ignored) {
 
+            }
+            Intent lgtIntent = new Intent(HomeActivity.this, LoginActivity.class);
+            startActivity(lgtIntent);
+            finish();
+
+            // TODO: 09-Apr-17  
+
+        } else if (id == R.id.activity_exit) {
+            finish();
+        } else if (id == R.id.activity_search) {
+            // TODO: 09-Apr-17  
+        } else if (id == R.id.activity_about) {
+            Intent aboutIntent = new Intent(HomeActivity.this, Aboutus.class);
+            startActivity(aboutIntent);
         }
+
 
         return super.onOptionsItemSelected(item);
     }
@@ -82,45 +136,54 @@ public class HomeActivity extends AppCompatActivity
     @Override
     public boolean onNavigationItemSelected(MenuItem item) {
 
-        switch(item.getItemId()){
-            case R.id.activity_settings:
-                // TODO: 06-Apr-17  for settings
+        switch (item.getItemId()) {
+            case R.id.nav_saved:
+                // TODO: 07-Apr-17
                 break;
-            case R.id.activity_about:
-                // TODO: 06-Apr-17 for about us
+            case R.id.nav_fav:
+                // TODO: 07-Apr
                 break;
-            case R.id.activity_feedback:
-                // TODO: 06-Apr-17 for feedback
+
+            case R.id.nav_share:
+                Intent share = new Intent(Intent.ACTION_SEND);
+                share.setType("text/plain");
+                share.putExtra(Intent.EXTRA_SUBJECT, "Scoop");
+
+                share.putExtra(Intent.EXTRA_TEXT, "Your friend has invited you to join the app./n To join click the link");
+                startActivity(Intent.createChooser(share, "Share via..."));
                 break;
-            case R.id.activity_home:
-                // TODO: 06-Apr-17 for home
+            case R.id.nav_feedback:
+                Intent feedIntent = new Intent(HomeActivity.this, Feedback.class);
+                startActivity(feedIntent);
                 break;
-            case R.id.activity_exit:
-                //
 
         }
-        // Handle navigation view item clicks here.
-        int id = item.getItemId();
-
-        if (id == R.id.nav_savedarticles) {
-            // Handle the camera action
-
-        } else if (id == R.id.nav_applanguage) {
-
-        } else if (id == R.id.nav_bold) {
-
-        } else if (id == R.id.nav_fav) {
-
-        } else if (id == R.id.nav_settings) {
-
-        } else if (id == R.id.nav_send) {
-
-        }else if (id == R.id.nav_share) {
-
-        }
-
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
     }
+
+    @Override
+    public void onClick(View v) {
+
+    }
+
+    @Override
+    public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        mAuth.addAuthStateListener(mAuthListener);
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        mAuth.removeAuthStateListener(mAuthListener);
+    }
+
+
 }

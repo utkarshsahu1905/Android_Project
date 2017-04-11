@@ -3,27 +3,18 @@
     xmlns:android="http://schemas.android.com/apk/res/android">
 
     <group android:checkableBehavior="single">
-        <item
-            android:id="@+id/nav_savedarticles"
-            android:title="Saved Articles" />
-        <item
-            android:id="@+id/nav_applanguage"
-            android:title="App Language" />
-        <item
-            android:id="@+id/activity_modes"
-            android:title="Night Mode"
-            android:visible="false" />
-        <item
-            android:id="@+id/nav_bold"
-            android:title="Bold Text" />
+
     </group>
 
     <item
         android:id="@+id/nav_fav"
-        android:title="Favorite List" />
+        android:title="Favorite List"
+        android:icon="@drawable/ic_favorite_border_black_24dp"/>
     <item
-        android:id="@+id/nav_settings"
-        android:title="Settings" />
+        android:id="@+id/nav_saved"
+        android:title="Saved Articles" />
+
+
     <item android:title="Communicate">
         <menu>
             <item
@@ -31,9 +22,8 @@
                 android:icon="@drawable/ic_menu_share"
                 android:title="Share" />
             <item
-                android:id="@+id/nav_send"
-                android:icon="@drawable/ic_menu_send"
-                android:title="Send" />
+                android:id="@+id/nav_feedback"
+                android:title="Feedback" />
         </menu>
     </item>
 

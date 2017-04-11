@@ -17,12 +17,12 @@ import trainedge.scoop.R;
  * Created by hp on 05-Apr-17.
  */
 
-public class CategoryHandler extends RecyclerView.Adapter<CategoryHolder> {
+public class CategoryAdapter extends RecyclerView.Adapter<CategoryHolder> {
 
     List<CategoryModel> CategoryList;
     private CategoryModel categoryModel;
 
-    public CategoryHandler(List<CategoryModel> categoryList) {
+    public CategoryAdapter(List<CategoryModel> categoryList) {
         CategoryList = categoryList;
     }
 
