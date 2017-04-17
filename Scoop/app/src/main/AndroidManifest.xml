@@ -36,7 +36,6 @@
             android:name=".LoginActivity"
             android:label="@string/app_name"
             android:theme="@style/AppTheme.NoActionBar" />
-
         <activity
             android:name=".HomeActivity"
             android:label="@string/title_activity_home"
@@ -48,8 +47,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".Frontpage"
-            android:label="@string/app_name">
+            android:name=".Frontpage">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -60,9 +58,7 @@
             android:name=".Aboutus"
             android:label="About us"
             android:parentActivityName=".HomeActivity"
-            android:theme="@style/AppTheme.NoActionBar">
-
-        </activity>
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".Feedback"
             android:label="Feedback"
@@ -73,6 +69,16 @@
             android:label="@string/title_activity_settings"
             android:parentActivityName=".HomeActivity"
             android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".FeedActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".ChoiceActivity"
+            android:label="Scoop"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".Signup"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
 </manifest>

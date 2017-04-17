@@ -10,10 +10,105 @@
     <string name="navigation_drawer_close">Close navigation drawer</string>
     <string name="title_activity_preferences">preferences</string>
     <string name="title_activity_settings">Settings</string>
-<string-array name="lang">
-    <item>English</item>
-    <item>Hindi</item>
-</string-array>
+
+    <!--<string name="techcrunch">Techcrunch</string>-->
+    <!--<string name="techradar">Techradar</string>-->
+    <!--<string name="cnet">Cnet</string>-->
+    <!--<string name="wired">Wired</string>-->
+    <!--<string name="zdnet">ZDNet</string>-->
+    <!--<string name="computer">Computer Weekly</string>-->
+    <!--<string name="techRepublic">techRrunch</string>-->
+
+    <!--<string name="elle">Elle</string>-->
+    <!--<string name="instyle">InStyle</string>-->
+    <!--<string name="justluxe">JustLuxe</string>-->
+    <!--<string name="fibre2fashion">Fibre2Fashion</string>-->
+    <!--<string name="fashionandstyle">Fashion and Style</string>-->
+    <!--<string name="apparelsearch">Apparel Search</string>-->
+    <!--<string name="beautyworld">Beauty World</string>-->
+
+    <!--<string name="educationweek">Education Week</string>-->
+    <!--<string name="educationinternational">Education International</string>-->
+    <!--<string name="educationnext">Education Next</string>-->
+    <!--<string name="edutopia">Edutopia</string>-->
+    <!--<string name="usdepartment">US Department of Education</string>-->
+    <!--<string name="educationworld">Education world</string>-->
+    <!--<string name="educationtimes">Education times</string>-->
+    <!--<string name="harvardgraduate">Harvard Graduate School Of Education</string>-->
+
+    <!--<string name="businesstandard">Business Standard</string>-->
+    <!--<string name="economists">The Economist</string>-->
+    <!--<string name="economictimes">The Economic Times-Indiatimes</string>-->
+    <!--<string name="businesstoday">Business Today</string>-->
+    <!--<string name="entreprenuer">Entreprenuer</string>-->
+    <!--<string name="businesswire">Business Wire</string>-->
+    <!--<string name="businessinsider">Business Insider India</string>-->
+    <!--<string name="cnbc">CNBC</string>-->
+
+    <!--<string name="independenttraveler">IndependentTraveler</string>-->
+    <!--<string name="expediaindia">Expedia India</string>-->
+    <!--<string name="breakingtravelnews">Breaking Travel News</string>-->
+    <!--<string name="travelmole">TravelMole</string>-->
+    <!--<string name="travelstate">travel State</string>-->
+
+    <!--<string name="hollywood">Access Hollywood</string>-->
+    <!--<string name="online">E! online</string>-->
+    <!--<string name="contactmusic">Contactmusic</string>-->
+    <!--<string name="tmz">TMZ</string>-->
+    <!--<string name="entertainment">Entertainment Tonight</string>-->
+    <!--<string name="reporter">Hollywood Reporter</string>-->
+
+    <!--<string name="foodandwine">Food and Wine</string>-->
+    <!--<string name="thetelegraph">The Telegraph</string>-->
+    <!--<string name="eatingwell">Eating Well</string>-->
+    <!--<string name="food">Food</string>-->
+    <!--<string name="eatyourworld">Eat your World</string>-->
+    <!--<string name="finedininglovers">Fine dining Lovers</string>-->
+    <!--<string name="seriouseats">Serious Eats</string>-->
+
+    <!--<string name="espn">ESPN</string>-->
+    <!--<string name="fox">Fox sports</string>-->
+    <!--<string name="bbc">BBC sport</string>-->
+    <!--<string name="yahoo">Yahoo sports</string>-->
+    <!--<string name="sport24">Sport24</string>-->
+    <!--<string name="timesofindia">Times of india</string>-->
+    <!--<string name="sportsworld">Sports world</string>-->
+
+    <!--<string name="ndtv">NDTV Gadget360</string>-->
+    <!--<string name="window">Windows 7/8/10 Gadgets</string>-->
+    <!--<string name="gadget">The Gadgets and Tech Guide</string>-->
+    <!--<string name="tech">TechRadar</string>-->
+
+    <!--<string name="ndtvnews">NDTV</string>-->
+    <!--<string name="timesof">Times of India</string>-->
+    <!--<string name="hindu">The Hindu</string>-->
+    <!--<string name="indiatodaygroup">India Today Group</string>-->
+    <!--<string name="news18">News18</string>-->
+    <!--<string name="foxnews">Fox News</string>-->
+    <!--<string name="bbcnews">BBC News</string>-->
+    <!--<string name="cnn">CNN</string>-->
+
+    <!--<string name="health">Health</string>-->
+    <!--<string name="womenshealthandfitness">Women Health And Fitness</string>-->
+    <!--<string name="americancouncil">American Council</string>-->
+    <!--<string name="womensfitness">Womens Fitness</string>-->
+    <!--<string name="shapesingapore">Shape Singapore</string>-->
+    <!--<string name="bodyandsoul">Body+ Soul</string>-->
+    <!--<string name="healthcentral">HealthCentral</string>-->
+    <!--<string name="health24">Health24</string>-->
+
+    <!--<string name="politicshome">Politics Home</string>-->
+    <!--<string name="realclear">RealClearPolitics</string>-->
+    <!--<string name="economist">The Economist</string>-->
+    <!--<string name="politico">Politico</string>-->
+    <!--<string name="political">Economic and Political Weekly</string>-->
+    <!--<string name="newyorker">The New Yorker</string>-->
+    <!--<string name="washington">Washington Times</string>-->
+
+    <string-array name="lang">
+        <item>English</item>
+        <item>Hindi</item>
+    </string-array>
     <string-array name="quality">
         <item>High</item>
         <item>Medium</item>

@@ -1,16 +1,19 @@
 package trainedge.scoop;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.v4.view.LayoutInflaterCompat;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import trainedge.scoop.CategoryHolder;
 import trainedge.scoop.CategoryModel;
+import trainedge.scoop.Model.FeedModel;
 import trainedge.scoop.R;
 
 /**
@@ -19,8 +22,7 @@ import trainedge.scoop.R;
 
 public class CategoryAdapter extends RecyclerView.Adapter<CategoryHolder> {
 
-    List<CategoryModel> CategoryList;
-    private CategoryModel categoryModel;
+    private List<CategoryModel> CategoryList;
 
     public CategoryAdapter(List<CategoryModel> categoryList) {
         CategoryList = categoryList;
@@ -31,17 +33,25 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryHolder> {
         View row=((LayoutInflater)parent.getContext()
                 .getSystemService(Context.LAYOUT_INFLATER_SERVICE))
                 .inflate(R.layout.simple_category_item,parent,false);
-
         return new CategoryHolder(row);
     }
 
     @Override
-    public void onBindViewHolder(CategoryHolder holder, int position) {
-        categoryModel = CategoryList.get(position);
+    public void onBindViewHolder(final CategoryHolder holder, final int position) {
+        final CategoryModel categoryModel = CategoryList.get(position);
         holder.tvLabel.setText(categoryModel.label);
+        holder.rlContainer.setTag(categoryModel);
+        holder.rlContainer.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                CategoryModel tag = (CategoryModel) holder.rlContainer.getTag();
+                Intent i = new Intent(v.getContext(),ChoiceActivity.class);
+                i.putExtra("trainedge.scoop.EXTRA_CATEGORY",tag.label);
+                i.putExtra("trainedge.scoop.EXTRA_POS",position);
+                v.getContext().startActivity(i);
 
-
-
+            }
+        });
     }
 
     @Override
@@ -49,4 +59,6 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryHolder> {
         return CategoryList.size();
 
     }
+
+
 }

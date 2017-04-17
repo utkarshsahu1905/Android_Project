@@ -4,7 +4,8 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
-import android.util.Log;
+import android.support.v7.widget.GridLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -14,18 +15,15 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.Button;
 import android.widget.CompoundButton;
-import android.widget.Switch;
-import android.widget.Toast;
 
 import com.facebook.AccessToken;
 import com.facebook.login.LoginManager;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
-import static android.R.attr.id;
-import static android.R.attr.start;
+import java.util.ArrayList;
+
 
 
 public class HomeActivity extends AppCompatActivity
@@ -36,13 +34,23 @@ public class HomeActivity extends AppCompatActivity
     private FirebaseAuth mAuth;
     private FirebaseAuth.AuthStateListener mAuthListener;
 
+
+    private ArrayList<CategoryModel> CategoryList;
+    private RecyclerView rvCategory;
+
+    private CategoryAdapter adapter;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        //Button lgt = (Button) findViewById(R.id.activity_logout);
+        //Button lgt =
+        setTheme(android.R.style.Theme_Dark);
+
+        // ...
+        setContentView(R.layout.homelayout);
 
 
         mAuth = FirebaseAuth.getInstance();
@@ -74,7 +82,36 @@ public class HomeActivity extends AppCompatActivity
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+
+        CategoryList = new ArrayList<>();
+
+
+        rvCategory = (RecyclerView) findViewById(R.id.rvCategory);
+        GridLayoutManager manager=new GridLayoutManager(this,2);
+
+        rvCategory.setLayoutManager(manager);
+        generateCategories();
+
     }
+
+
+    public void generateCategories() {
+        CategoryList.add(new CategoryModel("Tech", R.drawable.tech));
+        CategoryList.add(new CategoryModel("Gadgets", R.drawable.gadgets));
+        CategoryList.add(new CategoryModel("Entertainment", R.drawable.entertainment));
+        CategoryList.add(new CategoryModel("Politics", R.drawable.politics));
+        CategoryList.add(new CategoryModel("Sports", R.drawable.sports));
+        CategoryList.add(new CategoryModel("Business", R.drawable.business));
+        CategoryList.add(new CategoryModel("News", R.drawable.news));
+        CategoryList.add(new CategoryModel("Education", R.drawable.education));
+        CategoryList.add(new CategoryModel("Travel", R.drawable.travel));
+        CategoryList.add(new CategoryModel("Health and Fitness", R.drawable.health));
+        CategoryList.add(new CategoryModel("Food", R.drawable.food));
+        CategoryList.add(new CategoryModel("Fashion", R.drawable.fashion));
+        adapter = new CategoryAdapter(CategoryList);
+        rvCategory.setAdapter(adapter);
+    }
+
 
     @Override
     public void onBackPressed() {
@@ -87,11 +124,16 @@ public class HomeActivity extends AppCompatActivity
     }
 
     @Override
+
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.home, menu);
-        return true;
-    }
+
+                    return true;
+
+                }
+
+
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
@@ -117,12 +159,12 @@ public class HomeActivity extends AppCompatActivity
             startActivity(lgtIntent);
             finish();
 
-            // TODO: 09-Apr-17  
-
         } else if (id == R.id.activity_exit) {
             finish();
         } else if (id == R.id.activity_search) {
-            // TODO: 09-Apr-17  
+
+
+            // TODO: 09-Apr-17
         } else if (id == R.id.activity_about) {
             Intent aboutIntent = new Intent(HomeActivity.this, Aboutus.class);
             startActivity(aboutIntent);

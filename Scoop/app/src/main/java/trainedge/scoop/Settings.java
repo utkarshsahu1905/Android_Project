@@ -88,9 +88,13 @@ public class Settings extends AppCompatActivity implements CompoundButton.OnChec
             editor.putBoolean("bold_text", isChecked);
         }
         if (buttonView.getId() == R.id.switch_mode) {
+            getApplication().setTheme(R.style.BlackTheme);
+        } else {
+            getApplication().setTheme(R.style.LightTheme);
+        }
             editor.putBoolean("night_mode", isChecked);
         }
-    }
+
 
     @Override
     public void onBackPressed() {

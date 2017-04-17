@@ -13,6 +13,7 @@
         <android.support.v7.widget.RecyclerView
             android:id="@+id/rvCategory"
             android:layout_width="match_parent"
-            android:layout_height="match_parent" />
+            android:layout_height="match_parent"
+            tools:listitem="@layout/simple_category_item" />
     </FrameLayout>
 </android.support.design.widget.CoordinatorLayout>

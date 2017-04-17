@@ -25,6 +25,5 @@
                 android:id="@+id/nav_feedback"
                 android:title="Feedback" />
         </menu>
-    </item>
-
+</item>
 </menu>
