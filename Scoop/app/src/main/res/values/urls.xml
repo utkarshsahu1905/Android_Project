@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="techcrunch">https://techcrunch.com/rssfeeds/</string>
+    <string name="techcrunch">http://feeds.feedburner.com/TechCrunch/</string>
     <!-- valid-->
-    <string name="cnet">https://www.cnet.com/rss/</string>
+    <string name="cnet">https://www.cnet.com/rss/news</string>
     <!-- valid-->
     <string name="wired">https://www.wired.com/about/rss_feeds/</string>
     <!-- valid-->
@@ -10,9 +10,9 @@
     <!-- valid-->
     <string name="techRepublic">www.techrepublic.com/rssfeeds/</string>
     <!-- valid-->
-    <string name="techradar">www.techradar.com/rsstoolkit</string>
+    <string name="techradar">https://techradar1.wordpress.com/feed/</string>
     <!-- valid-->
-    <string name="zdnet">www.zdnet.com/rssfeeds/</string>
+    <string name="zdnet">http://www.chasms.com/4uwebsite/zdnet.htm</string>
     <!-- valid-->
 
     <string name="elle">www.elle.com/about/a50/rss-feeds/</string>

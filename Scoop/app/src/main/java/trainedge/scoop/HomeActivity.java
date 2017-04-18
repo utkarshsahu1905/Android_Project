@@ -40,6 +40,7 @@ public class HomeActivity extends AppCompatActivity
 
     private CategoryAdapter adapter;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -47,10 +48,7 @@ public class HomeActivity extends AppCompatActivity
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         //Button lgt =
-        setTheme(android.R.style.Theme_Dark);
 
-        // ...
-        setContentView(R.layout.homelayout);
 
 
         mAuth = FirebaseAuth.getInstance();

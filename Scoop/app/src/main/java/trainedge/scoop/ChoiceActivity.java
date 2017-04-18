@@ -40,12 +40,42 @@ public class ChoiceActivity extends AppCompatActivity implements AdapterView.OnI
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         choicesTech.put("Techcrunch", R.string.techcrunch);
-        choicesTech.put("Techradar", R.string.techradar);
-        choicesTech.put("Cnet", R.string.cnet);
-        choicesTech.put("Wired", R.string.wired);
         choicesTech.put("ZDNet", R.string.zdnet);
-        choicesTech.put("Computer Weekly", R.string.computer);
         choicesTech.put("techRepublic", R.string.techRepublic);
+        choicesTech.put("Wired", R.string.wired);
+        choicesTech.put("Computer Weekly", R.string.computer);
+        choicesTech.put("Cnet", R.string.cnet);
+        choicesTech.put("Techradar", R.string.techradar);
+
+        choicesGadgets.put("Windows 7/8/10 Gadgets", R.string.window);
+        choicesGadgets.put("NDTV Gadgets360" , R.string.ndtv);
+        choicesGadgets.put("TechRadar", R.string.tech);
+        choicesGadgets.put("The Gadgets and Tech Guide", R.string.gadgets);
+
+        choicesEntertainment.put("Entertainment Tonight", R.string.entertainment);
+        choicesEntertainment.put(" E! Online", R.string.online);
+        choicesEntertainment.put("Access Hollywood", R.string.hollywood);
+        choicesEntertainment.put("Hollywood Reporter", R.string.reporter);
+        choicesEntertainment.put("Contactmusic", R.string.contactmusic);
+        choicesEntertainment.put("TMZ", R.string.tmz);
+
+
+        choicesPolitics.put("Washington Times", R.string.washingtontimes);
+        choicesPolitics.put("PoliticsHome", R.string.politicshome);
+        choicesPolitics.put("The Economist", R.string.economist);
+        choicesPolitics.put("RealClearPolitics", R.string.realclear);
+        choicesPolitics.put("Economic and Political Weekly", R.string.political);
+        choicesPolitics.put("The New Yorker", R.string.newyorker);
+        choicesPolitics.put("Politico", R.string.politico);
+
+        choicesSport.put("Sports world", R.string.sportsworld);
+        choicesSport.put("Sport24", R.string.sport24);
+        choicesSport.put("Fox sports", R.string.fox);
+        choicesSport.put("Yahoo sports", R.string.yahoo);
+        choicesSport.put("BBC sport", R.string.bbc);
+        choicesSport.put("Times of india", R.string.timesofindia);
+        choicesSport.put("ESPN", R.string.espn);
+
 
         choicesFashion.put("ELLE's", R.string.elle);
         choicesFashion.put("InStyle", R.string.instyle);
@@ -79,12 +109,7 @@ public class ChoiceActivity extends AppCompatActivity implements AdapterView.OnI
         choicesTravel.put("TravelMole", R.string.travelmole);
         choicesTravel.put("Travel State", R.string.travelstate);
 
-        choicesEntertainment.put("Access Hollywood", R.string.hollywood);
-        choicesEntertainment.put(" E! Online", R.string.online);
-        choicesEntertainment.put("Contactmusic", R.string.contactmusic);
-        choicesEntertainment.put("TMZ", R.string.tmz);
-        choicesEntertainment.put("Entertainment Tonight", R.string.entertainment);
-        choicesEntertainment.put("Hollywood Reporter", R.string.reporter);
+
 
         choicesFood.put("Food & Wine", R.string.foodandwine);
         choicesFood.put("The Telegraph", R.string.thetelegraph);
@@ -94,19 +119,10 @@ public class ChoiceActivity extends AppCompatActivity implements AdapterView.OnI
         choicesFood.put("Fine dining Lovers", R.string.finedininglovers);
         choicesFood.put("Serious Eats", R.string.seriouseats);
 
-        choicesSport.put("ESPN", R.string.espn);
-        choicesSport.put("Fox sports", R.string.fox);
-        choicesSport.put("BBC sport", R.string.bbc);
-        choicesSport.put("Yahoo sports", R.string.yahoo);
-        choicesSport.put("Sport24", R.string.sport24);
-        choicesSport.put("Times of india", R.string.timesofindia);
-        choicesSport.put("Sports world", R.string.sportsworld);
 
 
-        choicesGadgets.put("NDTV Gadgets360" , R.string.ndtv);
-        choicesGadgets.put("Windows 7/8/10 Gadgets", R.string.window);
-        choicesGadgets.put("The Gadgets and Tech Guide", R.string.gadgets);
-        choicesGadgets.put("TechRadar", R.string.tech);
+
+
 
         choicesNews.put("NDTV", R.string.ndtvnews);
         choicesNews.put("Times of India", R.string.timesof);
@@ -126,13 +142,7 @@ public class ChoiceActivity extends AppCompatActivity implements AdapterView.OnI
         choicesHealth_and_fitness.put("HealthCentral", R.string.healthcentral);
         choicesHealth_and_fitness.put("Health24", R.string.health24);
 
-        choicesPolitics.put("PoliticsHome", R.string.politicshome);
-        choicesPolitics.put("RealClearPolitics", R.string.realclear);
-        choicesPolitics.put("The Economist", R.string.economist);
-        choicesPolitics.put("Politico", R.string.politico);
-        choicesPolitics.put("Economic and Political Weekly", R.string.political);
-        choicesPolitics.put("The New Yorker", R.string.newyorker);
-        choicesPolitics.put("Washington Times", R.string.washingtontimes);
+
 
         lvChoice = (ListView) findViewById(R.id.lvChoice);
         if (getIntent() != null && getIntent().hasExtra("trainedge.scoop.EXTRA_CATEGORY")) {
@@ -216,51 +226,53 @@ public class ChoiceActivity extends AppCompatActivity implements AdapterView.OnI
     @Override
     public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
         String selectedUrl = null;
+        String feedKey = feedNames[i].toString();
         switch (categoryType) {
             case 0:
-                selectedUrl = getResources().getString(choicesTech.get(feedNames[i].toString()));
+                selectedUrl = getResources().getString(choicesTech.get(feedKey));
                 break;
             case 1:
-                selectedUrl = getResources().getString(choicesFashion.get(feedNames[i].toString()));
+                Integer id = choicesGadgets.get(feedKey);
+                selectedUrl = getResources().getString(id);
 
                 break;
             case 2:
-                selectedUrl = getResources().getString(choicesEducation.get(feedNames[i].toString()));
+                selectedUrl = getResources().getString(choicesEntertainment.get(feedKey));
                 break;
             case 3:
-                selectedUrl = getResources().getString(choicesBusiness.get(feedNames[i].toString()));
+                selectedUrl = getResources().getString(choicesPolitics.get(feedKey));
                 break;
             case 4:
-                selectedUrl = getResources().getString(choicesTravel.get(feedNames[i].toString()));
+                selectedUrl = getResources().getString(choicesSport.get(feedKey));
                 break;
             case 5:
-                selectedUrl = getResources().getString(choicesEntertainment.get(feedNames[i].toString()));
+                selectedUrl = getResources().getString(choicesBusiness.get(feedKey));
                 break;
             case 6:
-                selectedUrl = getResources().getString(choicesFood.get(feedNames[i].toString()));
+                selectedUrl = getResources().getString(choicesNews.get(feedKey));
                 break;
             case 7:
-                selectedUrl = getResources().getString(choicesSport.get(feedNames[i].toString()));
+                selectedUrl = getResources().getString(choicesEducation.get(feedKey));
                 break;
             case 8:
-                selectedUrl = getResources().getString(choicesGadgets.get(feedNames[i].toString()));
+                selectedUrl = getResources().getString(choicesTravel.get(feedKey));
                 break;
             case 9:
-                selectedUrl = getResources().getString(choicesNews.get(feedNames[i].toString()));
+                selectedUrl = getResources().getString(choicesHealth_and_fitness.get(feedKey));
                 break;
             case 10:
-                selectedUrl = getResources().getString(choicesHealth_and_fitness.get(feedNames[i].toString()));
+                selectedUrl = getResources().getString(choicesFood.get(feedKey));
                 break;
             case 11:
-                selectedUrl = getResources().getString(choicesPolitics.get(feedNames[i].toString()));
+                selectedUrl = getResources().getString(choicesFashion.get(feedKey));
                 break;
             case -1:
-                selectedUrl = getResources().getString(megaList.get(feedNames[i].toString()));
+                selectedUrl = getResources().getString(megaList.get(feedKey));
                 break;
         }
         Intent feedIntent = new Intent(this, FeedActivity.class);
-        feedIntent.putExtra("org.example.feedrss.EXTRA_URL", selectedUrl);
-        feedIntent.putExtra("org.example.feedrss.EXTRA_NAME", feedNames[i].toString());
+        feedIntent.putExtra("trainedge.scoop.EXTRA_URL", selectedUrl);
+        feedIntent.putExtra("trainedge.scoop.EXTRA_NAME", feedKey);
         startActivity(feedIntent);
 
     }

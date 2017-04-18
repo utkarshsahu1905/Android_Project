@@ -77,7 +77,9 @@ public class Feedback extends AppCompatActivity implements View.OnClickListener,
         emailint.putExtra(Intent.EXTRA_EMAIL, new String[]{"thisisut1905@gmail.com"});
         emailint.putExtra(Intent.EXTRA_EMAIL, new String[]{"dixitprashant762@gmail.com"});
         emailint.putExtra(Intent.EXTRA_SUBJECT, "Feedback");
-        emailint.putExtra(Intent.EXTRA_TEXT, "Hi,\n \t You have got a feedback. And user's thought about the app are - \"" + erfeed.getText().toString() + "\". To write him back please use the email \"" + ermail.getText().toString() + "\". \n\tHave a nice day. \n\tThank You.");
+        emailint.putExtra(Intent.EXTRA_TEXT, "Hi,\n \t You have got a feedback. And user's thought about the app are - \"" +
+                "" + erfeed.getText().toString() + "\". To write him back please use the email \"" +
+                "" + ermail.getText().toString() + "\". \n\tHave a nice day. \n\tThank You.");
         startActivity(Intent.createChooser(emailint, "Send feedback using..."));
         erfeed.setText("");
         ermail.setText("");

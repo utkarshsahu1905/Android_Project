@@ -1,5 +1,6 @@
 package trainedge.scoop;
 
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -32,8 +33,8 @@ public class FeedActivity extends AppCompatActivity {
     private RecyclerView rvFeedList;
     private CustomAdapter adapter;
 
-   /*int techurls[]=new int[]{R.string.techcrunch,R.string.TechRadar,R.string.cnet,R.string.wired,R.string.ComputerWeekly,R.string.techRepublic,R.string.ZDNet};
-    int fashionurls[]=new int []{R.string.quanta,R.string.nationalgeographic,R.string.discovermagazine,R.string.sciencechannel,R.string.sciencedaily,R.string.sciencereddit,R.string.theatlantic};
+    int techurls[]=new int[]{R.string.techcrunch,R.string.techradar,R.string.cnet,R.string.wired,R.string.computer,R.string.techRepublic,R.string.zdnet};
+    /*int fashionurls[]=new int []{R.string.quanta,R.string.nationalgeographic,R.string.discovermagazine,R.string.sciencechannel,R.string.sciencedaily,R.string.sciencereddit,R.string.theatlantic};
     int entertainmenturls[]=new int []{R.string.empirenews,R.string.spotify,R.string.rottentomatoes,R.string.mashables,R.string.indiewire,R.string.boxofficemojo,R.string.spin,R.string.makeuseof,R.string.salon,R.string.entertainmentweekly};
     int educationurls[]=new int []{R.string.photographmag,R.string.photographyreddit,R.string.photographytheverge,R.string.pixels,R.string.expertphotography,R.string.dailypuppy,R.string.dkphotography,R.string.diyphotographystuff};
     int businessurls[]=new  int []{};
@@ -42,8 +43,8 @@ public class FeedActivity extends AppCompatActivity {
     int sportsurls[]= new int[]{};
     int gadgetsurla[]=new int[]{};
     int newsurls[]=new int[]{};
-    int healthandfitnessurls[]=new int
-    int politicsurls[]= new int[]{R.string.PoliticsHome, R.string.RealClearPolitics,R.string.The Economist,R.string.Politico,R.string.Economic_and_Political_Weekly,R.string.The New Yorker,R.string.Washington Times}*/
+    int healthandfitnessurls[]=new int*/
+    int politicsurls[]= new int[]{R.string.politicshome, R.string.realclear,R.string.economist,R.string.politico,R.string.economictimes,R.string.newyorker,R.string.washingtontimes};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -56,14 +57,18 @@ public class FeedActivity extends AppCompatActivity {
         flProgressContainer = (ViewGroup) findViewById(R.id.flProgressContainer);
         flProgressContainer.setVisibility(View.GONE);
 
-        if (getIntent() != null && getIntent().hasExtra("trainedge.scoop.EXTRA_URL")) {
-            String url = getIntent().getStringExtra("trainedge.scoop.EXTRA_URL");
-            String name = getIntent().getStringExtra("trainedge.scoop.EXTRA_NAME");
+        Intent feedIntent = getIntent();
+        if (feedIntent != null && feedIntent.hasExtra("trainedge.scoop.EXTRA_URL")) {
+            String url = feedIntent.getStringExtra("trainedge.scoop.EXTRA_URL");
+            String name = feedIntent.getStringExtra("trainedge.scoop.EXTRA_NAME");
             getSupportActionBar().setTitle(name);
             FeedFetchTask task = new FeedFetchTask();
 
             task.executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR, url);
             flProgressContainer.setVisibility(View.VISIBLE);
+        }
+        else{
+            finish();
         }
         rvFeedList = (RecyclerView) findViewById(R.id.rvFeedList);
         rvFeedList.setLayoutManager(new LinearLayoutManager(this));

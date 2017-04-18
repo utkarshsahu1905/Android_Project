@@ -40,7 +40,7 @@ public class Settings extends AppCompatActivity implements CompoundButton.OnChec
 
         notif = (Switch) findViewById(R.id.notif);
         notif.setOnCheckedChangeListener(this);
-        bold = (Switch) findViewById(R.id.switch_bold);
+
         bold.setOnCheckedChangeListener(this);
         mode = (Switch) findViewById(R.id.switch_mode);
         mode.setOnCheckedChangeListener(this);
@@ -66,6 +66,16 @@ public class Settings extends AppCompatActivity implements CompoundButton.OnChec
         spinner1.setAdapter(adapter1);
         spinner.setOnItemSelectedListener(this);
 
+        Spinner spinner2 = (Spinner) findViewById(R.id.font);
+// Create an ArrayAdapter using the string array and a default spinner layout
+        ArrayAdapter<CharSequence> adapter2 = ArrayAdapter.createFromResource(this,
+                R.array.quality, android.R.layout.simple_spinner_item);
+// Specify the layout to use when the list of choices appears
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+// Apply the adapter to the spinner
+        spinner1.setAdapter(adapter2);
+        spinner.setOnItemSelectedListener(this);
+
 
         updateUI();
 
@@ -84,9 +94,7 @@ public class Settings extends AppCompatActivity implements CompoundButton.OnChec
             editor.putBoolean("notif_option", isChecked);
             editor.apply();
         }
-        if (buttonView.getId() == R.id.switch_bold) {
-            editor.putBoolean("bold_text", isChecked);
-        }
+
         if (buttonView.getId() == R.id.switch_mode) {
             getApplication().setTheme(R.style.BlackTheme);
         } else {

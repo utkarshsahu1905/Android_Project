@@ -114,4 +114,8 @@
         <item>Medium</item>
         <item>Low</item>
     </string-array>
+    <string-array name="font">
+        <item>Bold</item>
+        <item>Italic</item>
+    </string-array>
 </resources>
