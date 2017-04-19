@@ -104,7 +104,7 @@
             app:srcCompat="@drawable/ic_share_black_24dp" />
 
         <ImageView
-            android:id="@+id/imageView2"
+            android:id="@+id/ivFav"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignTop="@+id/ivShare"

@@ -22,6 +22,7 @@ public class Holder extends RecyclerView.ViewHolder implements View.OnClickListe
     TextView tvDesc;
     TextView tvPubDate;
     private ArrayBlockingQueue list_members;
+    ImageView ivFav;
 
     public Holder(View itemView) {
         super(itemView);
@@ -32,6 +33,7 @@ public class Holder extends RecyclerView.ViewHolder implements View.OnClickListe
         tvPubDate = (TextView) itemView.findViewById(R.id.tvPubDate);
         feedImg = (ImageView) itemView.findViewById(R.id.feedImg);
         ivShare = (ImageView) itemView.findViewById(R.id.ivShare);
+        ivFav = (ImageView) itemView.findViewById(R.id.ivFav);
     }
 
     @Override

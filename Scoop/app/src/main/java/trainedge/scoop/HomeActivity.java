@@ -177,11 +177,10 @@ public class HomeActivity extends AppCompatActivity
     public boolean onNavigationItemSelected(MenuItem item) {
 
         switch (item.getItemId()) {
-            case R.id.nav_saved:
-                // TODO: 07-Apr-17
-                break;
+
             case R.id.nav_fav:
-                // TODO: 07-Apr
+                Intent fav=new Intent(HomeActivity.this,FavoritesActivity.class);
+                startActivity(fav);
                 break;
 
             case R.id.nav_share:

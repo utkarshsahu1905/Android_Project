@@ -40,107 +40,101 @@ public class ChoiceActivity extends AppCompatActivity implements AdapterView.OnI
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         choicesTech.put("Techcrunch", R.string.techcrunch);
-        choicesTech.put("ZDNet", R.string.zdnet);
-        choicesTech.put("techRepublic", R.string.techRepublic);
-        choicesTech.put("Wired", R.string.wired);
-        choicesTech.put("Computer Weekly", R.string.computer);
+        choicesTech.put("Komodo Media", R.string.komodo);
+        choicesTech.put("BaluArt", R.string.balu);
+        choicesTech.put("LifeHack", R.string.life);
+        choicesTech.put("El Webmaster", R.string.elweb);
         choicesTech.put("Cnet", R.string.cnet);
         choicesTech.put("Techradar", R.string.techradar);
 
-        choicesGadgets.put("Windows 7/8/10 Gadgets", R.string.window);
-        choicesGadgets.put("NDTV Gadgets360" , R.string.ndtv);
-        choicesGadgets.put("TechRadar", R.string.tech);
-        choicesGadgets.put("The Gadgets and Tech Guide", R.string.gadgets);
+        choicesGadgets.put("Gottabemobile", R.string.gotta);
+        choicesGadgets.put("Tools and Toys" , R.string.tools);
+        choicesGadgets.put("TechPin", R.string.techpin);
+        choicesGadgets.put("SlashGear", R.string.slash);
 
-        choicesEntertainment.put("Entertainment Tonight", R.string.entertainment);
-        choicesEntertainment.put(" E! Online", R.string.online);
-        choicesEntertainment.put("Access Hollywood", R.string.hollywood);
-        choicesEntertainment.put("Hollywood Reporter", R.string.reporter);
-        choicesEntertainment.put("Contactmusic", R.string.contactmusic);
-        choicesEntertainment.put("TMZ", R.string.tmz);
-
-
-        choicesPolitics.put("Washington Times", R.string.washingtontimes);
-        choicesPolitics.put("PoliticsHome", R.string.politicshome);
-        choicesPolitics.put("The Economist", R.string.economist);
-        choicesPolitics.put("RealClearPolitics", R.string.realclear);
-        choicesPolitics.put("Economic and Political Weekly", R.string.political);
-        choicesPolitics.put("The New Yorker", R.string.newyorker);
-        choicesPolitics.put("Politico", R.string.politico);
-
-        choicesSport.put("Sports world", R.string.sportsworld);
-        choicesSport.put("Sport24", R.string.sport24);
-        choicesSport.put("Fox sports", R.string.fox);
-        choicesSport.put("Yahoo sports", R.string.yahoo);
-        choicesSport.put("BBC sport", R.string.bbc);
-        choicesSport.put("Times of india", R.string.timesofindia);
-        choicesSport.put("ESPN", R.string.espn);
+        choicesEntertainment.put("CartoonBrew", R.string.cartoon);
+        choicesEntertainment.put("Splitsider", R.string.split);
+        choicesEntertainment.put("Dilbert Daily Strip", R.string.dilbert);
+        choicesEntertainment.put("Daily Telegraph", R.string.daily);
+        choicesEntertainment.put("Flowing Data", R.string.flowing);
+        choicesEntertainment.put("Panel Syndicate", R.string.panel);
 
 
-        choicesFashion.put("ELLE's", R.string.elle);
-        choicesFashion.put("InStyle", R.string.instyle);
-        choicesFashion.put("JustLuxe", R.string.justLuxe);
-        choicesFashion.put("Fibre2Fashion", R.string.fibre2fashion);
-        choicesFashion.put("Fashion & Style", R.string.fashionandstyle);
+        choicesPolitics.put("The Daily Dish", R.string.thedaily);
+        choicesPolitics.put("The Atlantic", R.string.theatlanti);
+        choicesPolitics.put("Liberal Conspiracy", R.string.liberal);
+        choicesPolitics.put("Weekly Sift", R.string.weekly);
+        choicesPolitics.put("New Statesman", R.string.newstates);
+        choicesPolitics.put("Snowblog", R.string.snow);
+        choicesPolitics.put("Political Wire", R.string.political);
+
+        choicesSport.put("ABC News: ESPN Sports", R.string.abcnewsespn);
+        choicesSport.put("ANTARA News: Sports", R.string.antaranews);
+        choicesSport.put("The Washington Post", R.string.washington);
+        choicesSport.put("ESPN.com", R.string.espn);
+        choicesSport.put("Fark.com", R.string.fark);
+        choicesSport.put("For The Win", R.string.forthewin);
+        choicesSport.put("NBCSports", R.string.nbcsports);
+
+
+        choicesFashion.put("Fashion Jobs", R.string.fashionjobs);
+        choicesFashion.put("Fashion Blogs", R.string.fashionblogs);
+        choicesFashion.put("Fashion Industry", R.string.fashionindustry);
+        choicesFashion.put("Fashion Groups", R.string.fashiongroups);
+        choicesFashion.put("Fashion Events", R.string.fashionevents);
         choicesFashion.put("Apparel Search", R.string.apparelsearch);
-        choicesFashion.put("Beauty World", R.string.beautyworldnews);
+        choicesFashion.put("Spoonful of Style", R.string.spoonfulofstyle);
+        choicesFashion.put("Fashion365",R.string.fash365);
 
-        choicesEducation.put("Education Week", R.string.educationweek);
-        choicesEducation.put("Education International", R.string.educationinternational);
-        choicesEducation.put("Education Next", R.string.educationnext);
-        choicesEducation.put("Edutopia", R.string.edutopia);
-        choicesEducation.put("US Department of Education", R.string.usdepartment);
-        choicesEducation.put("Education world", R.string.educationworld);
-        choicesEducation.put("Education times", R.string.educationtimes);
-        choicesEducation.put("Harvard Graduate School Of Education", R.string.harvardgraduate);
+        choicesEducation.put("BBC News- Education and Family", R.string.bbcnewseducationandfamily);
+        choicesEducation.put("Big Ideas", R.string.bigideas);
+        choicesEducation.put("Book Basset", R.string.bookbasset);
+        choicesEducation.put("Brain Pickings", R.string.brainpickings);
+        choicesEducation.put("Creativity and Innovation", R.string.creativityandinnovation);
+        choicesEducation.put("Do Lectures", R.string.dolectures);
+        choicesEducation.put("Learn Anything Network", R.string.learnanythingnetwork);
+        choicesEducation.put("SchoolTech for Students", R.string.schooltech);
 
-        choicesBusiness.put("Business Standard", R.string.businesstandard);
-        choicesBusiness.put("The Economist", R.string.economists);
-        choicesBusiness.put("The Economic Times-Indiatimes", R.string.economictimes);
-        choicesBusiness.put("Business Today", R.string.businesstoday);
-        choicesBusiness.put("Entreprenuer", R.string.entrepreneur);
-        choicesBusiness.put("Business Wire", R.string.businesswire);
-        choicesBusiness.put("Business Insider India", R.string.businessinsider);
-        choicesBusiness.put("CNBC", R.string.cnbc);
+        choicesBusiness.put("Her Two Cents", R.string.hertwocents);
+        choicesBusiness.put("Calculated Risk", R.string.calculatedrisk);
+        choicesBusiness.put("Naked Capitalism", R.string.nakedcapitalism);
+        choicesBusiness.put("The Atlantic - Business", R.string.theatlantic);
+        choicesBusiness.put("Entrepreneur", R.string.entrepreneur);
+        choicesBusiness.put("HBR.org", R.string.hbr);
+        choicesBusiness.put("BusinessWeek.com", R.string.bw);
+        choicesBusiness.put("Capital Business", R.string.cb);
 
-        choicesTravel.put("IndependentTraveler", R.string.independenttraveler);
-        choicesTravel.put("Expedia India", R.string.expedia);
-        choicesTravel.put("Breaking Travel News", R.string.breakingtravelnews);
-        choicesTravel.put("TravelMole", R.string.travelmole);
-        choicesTravel.put("Travel State", R.string.travelstate);
+        choicesTravel.put("Beautiful Place To Visit", R.string.beautifulplace);
+        choicesTravel.put("Cheapest Destinations", R.string.cheapest);
+        choicesTravel.put("IBTimes.com", R.string.ibtimes);
+        choicesTravel.put("The Flight Deal", R.string.theflight);
+        choicesTravel.put("Gandling", R.string.gadling);
 
+        choicesFood.put("101 CookBooks", R.string.cookbook);
+        choicesFood.put("American Drink", R.string.american);
+        choicesFood.put("Gardening", R.string.gardening);
+        choicesFood.put("tastebook", R.string.tastebook);
+        choicesFood.put("Recipes and Menus", R.string.recipes);
+        choicesFood.put("Make it Tonight", R.string.makeit);
+        choicesFood.put("CakeWrecks", R.string.cake);
 
-
-        choicesFood.put("Food & Wine", R.string.foodandwine);
-        choicesFood.put("The Telegraph", R.string.thetelegraph);
-        choicesFood.put("Eating Well", R.string.eatingwell);
-        choicesFood.put("Food", R.string.food);
-        choicesFood.put("Eat Your World", R.string.eatyourworld);
-        choicesFood.put("Fine dining Lovers", R.string.finedininglovers);
-        choicesFood.put("Serious Eats", R.string.seriouseats);
-
-
-
-
-
-
-        choicesNews.put("NDTV", R.string.ndtvnews);
-        choicesNews.put("Times of India", R.string.timesof);
-        choicesNews.put("The Hindu", R.string.hindu);
-        choicesNews.put("India Today Group", R.string.indiatodaygroup);
-        choicesNews.put("News18", R.string.news18);
-        choicesNews.put("Fox News", R.string.foxnews);
+        choicesNews.put("3 News", R.string.news3);
+        choicesNews.put("Five ThirtyEight", R.string.five);
+        choicesNews.put("Rivva", R.string.rivva);
+        choicesNews.put("ABC News", R.string.abc);
+        choicesNews.put("BoingBoing", R.string.boing);
+        choicesNews.put("CBS News", R.string.cbs);
         choicesNews.put("BBC News", R.string.bbcnews);
-        choicesNews.put("CNN", R.string.cnn);
+        choicesNews.put("CBC", R.string.cbc);
 
-        choicesHealth_and_fitness.put("Health", R.string.health);
-        choicesHealth_and_fitness.put("Women's Health and Fitness", R.string.womenshealthandfitness);
-        choicesHealth_and_fitness.put("American Council", R.string.americancouncil);
-        choicesHealth_and_fitness.put("Womens Fitness", R.string.womensfitness);
-        choicesHealth_and_fitness.put("Shape Singapore", R.string.shapesingapore);
-        choicesHealth_and_fitness.put("body+ Soul", R.string.bodyandsoul);
-        choicesHealth_and_fitness.put("HealthCentral", R.string.healthcentral);
-        choicesHealth_and_fitness.put("Health24", R.string.health24);
+        choicesHealth_and_fitness.put("MedIndia Health", R.string.medindia);
+        choicesHealth_and_fitness.put("Latest Diet", R.string.latestdiet);
+        choicesHealth_and_fitness.put("Latest Drug", R.string.latestdrug);
+        choicesHealth_and_fitness.put("Latest Mental", R.string.latestmental);
+        choicesHealth_and_fitness.put("Latest Diabetes", R.string.latestdiabetes);
+        choicesHealth_and_fitness.put("Latest Women Health", R.string.latestwomen);
+        choicesHealth_and_fitness.put("Latest Men Health", R.string.latestmen);
+        choicesHealth_and_fitness.put("Latest Child Health", R.string.latestchild);
 
 
 
@@ -234,7 +228,6 @@ public class ChoiceActivity extends AppCompatActivity implements AdapterView.OnI
             case 1:
                 Integer id = choicesGadgets.get(feedKey);
                 selectedUrl = getResources().getString(id);
-
                 break;
             case 2:
                 selectedUrl = getResources().getString(choicesEntertainment.get(feedKey));
@@ -274,7 +267,6 @@ public class ChoiceActivity extends AppCompatActivity implements AdapterView.OnI
         feedIntent.putExtra("trainedge.scoop.EXTRA_URL", selectedUrl);
         feedIntent.putExtra("trainedge.scoop.EXTRA_NAME", feedKey);
         startActivity(feedIntent);
-
     }
 }
 

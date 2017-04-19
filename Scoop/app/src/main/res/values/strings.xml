@@ -14,96 +14,97 @@
     <!--<string name="techcrunch">Techcrunch</string>-->
     <!--<string name="techradar">Techradar</string>-->
     <!--<string name="cnet">Cnet</string>-->
-    <!--<string name="wired">Wired</string>-->
-    <!--<string name="zdnet">ZDNet</string>-->
-    <!--<string name="computer">Computer Weekly</string>-->
-    <!--<string name="techRepublic">techRrunch</string>-->
+    <!--<string name="life">LifeHack</string>-->
+    <!--<string name="komodo">Komodo Media</string>-->
+    <!--<string name="elweb">El Webmaster</string>-->
+    <!--<string name="balu">BaluArt</string>-->
 
-    <!--<string name="elle">Elle</string>-->
-    <!--<string name="instyle">InStyle</string>-->
-    <!--<string name="justluxe">JustLuxe</string>-->
-    <!--<string name="fibre2fashion">Fibre2Fashion</string>-->
-    <!--<string name="fashionandstyle">Fashion and Style</string>-->
+    <!--<string name="fashionjobs">Fashion Jobs</string>-->
+    <!--<string name="fashionblogs">Fashion Blogs</string>-->
+    <!--<string name="fashionindustry">Fashion Industry</string>-->
+    <!--<string name="fashiongroups">Fashion Groups</string>-->
+    <!--<string name="fashionevents">Fashion Events</string>-->
     <!--<string name="apparelsearch">Apparel Search</string>-->
-    <!--<string name="beautyworld">Beauty World</string>-->
+    <!--<string name="spoonfulofstyle">Spoonful of Style</string>-->
+    <!--<string name="fash365">Fashion365</string>-->
 
-    <!--<string name="educationweek">Education Week</string>-->
-    <!--<string name="educationinternational">Education International</string>-->
-    <!--<string name="educationnext">Education Next</string>-->
-    <!--<string name="edutopia">Edutopia</string>-->
-    <!--<string name="usdepartment">US Department of Education</string>-->
-    <!--<string name="educationworld">Education world</string>-->
-    <!--<string name="educationtimes">Education times</string>-->
-    <!--<string name="harvardgraduate">Harvard Graduate School Of Education</string>-->
+    <!--<string name="bbcnewseducationandfamily">BBC News- Education and Family</string>-->
+    <!--<string name="bigideas">Big Ideas</string>-->
+    <!--<string name="bookbasset">Book Basset</string>-->
+    <!--<string name="brainpickings">Brain Pickings</string>-->
+    <!--<string name="creativityandinnovation"Creativity and Innovation</string>-->
+    <!--<string name="dolectures">Do Lectures</string>-->
+    <!--<string name="learnanythingnetwork">Learn Anything Network</string>-->
+    <!--<string name="schooltech">SchoolTech for Students</string>-->
 
-    <!--<string name="businesstandard">Business Standard</string>-->
-    <!--<string name="economists">The Economist</string>-->
-    <!--<string name="economictimes">The Economic Times-Indiatimes</string>-->
-    <!--<string name="businesstoday">Business Today</string>-->
-    <!--<string name="entreprenuer">Entreprenuer</string>-->
-    <!--<string name="businesswire">Business Wire</string>-->
-    <!--<string name="businessinsider">Business Insider India</string>-->
-    <!--<string name="cnbc">CNBC</string>-->
+    <!--<string name="hertwocents"> Her Two Cents</string>-->
+    <!--<string name="calculatedrisk">Calculated Risk</string>-->
+    <!--<string name="nakedcapitalism">Naked Capitalism</string>-->
+    <!--<string name="theatlantic">The Atlantic - Business</string>-->
+    <!--<string name="entrepreneur">Entrepreneur</string>-->
+    <!--<string name="hbr">HBR.org</string>-->
+    <!--<string name="bw">BusinessWeek.com</string>-->
+    <!--<string name="cb">Capital Business</string>-->
 
-    <!--<string name="independenttraveler">IndependentTraveler</string>-->
-    <!--<string name="expediaindia">Expedia India</string>-->
-    <!--<string name="breakingtravelnews">Breaking Travel News</string>-->
-    <!--<string name="travelmole">TravelMole</string>-->
-    <!--<string name="travelstate">travel State</string>-->
+    <!--<string name="beautifulplace">Beautiful Place To Visit</string>-->
+    <!--<string name="cheapest">Cheapest Destinations</string>-->
+    <!--<string name="ibtimes">IBtimes.com</string>-->
+    <!--<string name="theflight">The Flight Deal</string>-->
+    <!--<string name="gadling">Gadling</string>-->
 
-    <!--<string name="hollywood">Access Hollywood</string>-->
-    <!--<string name="online">E! online</string>-->
-    <!--<string name="contactmusic">Contactmusic</string>-->
-    <!--<string name="tmz">TMZ</string>-->
-    <!--<string name="entertainment">Entertainment Tonight</string>-->
-    <!--<string name="reporter">Hollywood Reporter</string>-->
+    <!--<string name="cartoon">CartoonBrew</string>-->
+    <!--<string name="split">Splitsider</string>-->
+    <!--<string name="dilbert">Dilbert Daily Strip</string>-->
+    <!--<string name="daily">Daily Telagraph</string>-->
+    <!--<string name="flowing">Flowing Datat</string>-->
+    <!--<string name="panel">Panel Syndicate</string>-->
 
-    <!--<string name="foodandwine">Food and Wine</string>-->
-    <!--<string name="thetelegraph">The Telegraph</string>-->
-    <!--<string name="eatingwell">Eating Well</string>-->
-    <!--<string name="food">Food</string>-->
-    <!--<string name="eatyourworld">Eat your World</string>-->
-    <!--<string name="finedininglovers">Fine dining Lovers</string>-->
-    <!--<string name="seriouseats">Serious Eats</string>-->
+    <!--<string name="cookbook">101 CookBooks</string>-->
+    <!--<string name="american">American Drink</string>-->
+    <!--<string name="gardening">Gardening</string>-->
+    <!--<string name="tastebook">TasteBook</string>-->
+    <!--<string name="recipes">Recipes and Menus</string>-->
+    <!--<string name="makeit">Make it Tonight</string>-->
+    <!--<string name="cake">CakeWrecks</string>-->
 
-    <!--<string name="espn">ESPN</string>-->
-    <!--<string name="fox">Fox sports</string>-->
-    <!--<string name="bbc">BBC sport</string>-->
-    <!--<string name="yahoo">Yahoo sports</string>-->
-    <!--<string name="sport24">Sport24</string>-->
-    <!--<string name="timesofindia">Times of india</string>-->
-    <!--<string name="sportsworld">Sports world</string>-->
+    <!--<string name="abcnewsespn">ABC News: ESPN Sports</string>-->
+    <!--<string name="antaranews">ANTARA News: Sports</string>-->
+    <!--<string name="washington">The Washington Post</string>-->
+    <!--<string name="espn">ESPN.com</string>-->
+    <!--<string name="fark">Fark.com</string>-->
+    <!--<string name="forthewin">For The Win</string>-->
+    <!--<string name="nbcsports">NBCSports</string>-->
 
-    <!--<string name="ndtv">NDTV Gadget360</string>-->
-    <!--<string name="window">Windows 7/8/10 Gadgets</string>-->
-    <!--<string name="gadget">The Gadgets and Tech Guide</string>-->
-    <!--<string name="tech">TechRadar</string>-->
+    <!--<string name="gotta">Gottabemobile</string>-->
+    <!--<string name="tools">Tools and Toys</string>-->
+    <!--<string name="techpin">TechPin</string>-->
+    <!--<string name="slash">SlashGear</string>-->
 
-    <!--<string name="ndtvnews">NDTV</string>-->
-    <!--<string name="timesof">Times of India</string>-->
-    <!--<string name="hindu">The Hindu</string>-->
-    <!--<string name="indiatodaygroup">India Today Group</string>-->
-    <!--<string name="news18">News18</string>-->
-    <!--<string name="foxnews">Fox News</string>-->
+    <!--<string name="news3">3 News</string>-->
+    <!--<string name="five">Five ThirtyEight</string>-->
+    <!--<string name="rivva">Rivva</string>-->
+    <!--<string name="abc">ABC News</string>-->
+    <!--<string name="boing">BoingBoing</string>-->
+    <!--<string name="cbs">CBS News</string>-->
     <!--<string name="bbcnews">BBC News</string>-->
-    <!--<string name="cnn">CNN</string>-->
+    <!--<string name="cbc">CBC </string>-->
 
-    <!--<string name="health">Health</string>-->
-    <!--<string name="womenshealthandfitness">Women Health And Fitness</string>-->
-    <!--<string name="americancouncil">American Council</string>-->
-    <!--<string name="womensfitness">Womens Fitness</string>-->
-    <!--<string name="shapesingapore">Shape Singapore</string>-->
-    <!--<string name="bodyandsoul">Body+ Soul</string>-->
-    <!--<string name="healthcentral">HealthCentral</string>-->
-    <!--<string name="health24">Health24</string>-->
+    <!--<string name="medindia">MedIndia Health</string>-->
+    <!--<string name="latestdiet">Latest Diet</string>-->
+    <!--<string name="latestdrug">Latest Drug</string>-->
+    <!--<string name="latestmental">Latest Mental Health</string>-->
+    <!--<string name="latestdiabetes">Latest Diabetes</string>-->
+    <!--<string name="latestwomen">Latest Women Health</string>-->
+    <!--<string name="latestmen">Latest Men Health</string>-->
+    <!--<string name="latestchild">Latest Child Health</string>-->
 
-    <!--<string name="politicshome">Politics Home</string>-->
-    <!--<string name="realclear">RealClearPolitics</string>-->
-    <!--<string name="economist">The Economist</string>-->
-    <!--<string name="politico">Politico</string>-->
-    <!--<string name="political">Economic and Political Weekly</string>-->
-    <!--<string name="newyorker">The New Yorker</string>-->
-    <!--<string name="washington">Washington Times</string>-->
+    <!--<string name="thedaily">The Daily Dish</string>-->
+    <!--<string name="theatlanti">The Atlantic</string>-->
+    <!--<string name="liberal">Liberal Conspiracy</string>-->
+    <!--<string name="weekly">Weekly Sift</string>-->
+    <!--<string name="newstates">New Statesman</string>-->
+    <!--<string name="snow">Snowblog</string>-->
+    <!--<string name="political">Political Wire</string>-->
 
     <string-array name="lang">
         <item>English</item>
@@ -118,4 +119,94 @@
         <item>Bold</item>
         <item>Italic</item>
     </string-array>
+    <string name="title_activity_favorites">Favorites</string>
+    <string name="large_text">
+        "Material is the metaphor.\n\n"
+
+        "A material metaphor is the unifying theory of a rationalized space and a system of motion."
+        "The material is grounded in tactile reality, inspired by the study of paper and ink, yet "
+        "technologically advanced and open to imagination and magic.\n"
+        "Surfaces and edges of the material provide visual cues that are grounded in reality. The "
+        "use of familiar tactile attributes helps users quickly understand affordances. Yet the "
+        "flexibility of the material creates new affordances that supercede those in the physical "
+        "world, without breaking the rules of physics.\n"
+        "The fundamentals of light, surface, and movement are key to conveying how objects move, "
+        "interact, and exist in space and in relation to each other. Realistic lighting shows "
+        "seams, divides space, and indicates moving parts.\n\n"
+
+        "Bold, graphic, intentional.\n\n"
+
+        "The foundational elements of print based design typography, grids, space, scale, color, "
+        "and use of imagery guide visual treatments. These elements do far more than please the "
+        "eye. They create hierarchy, meaning, and focus. Deliberate color choices, edge to edge "
+        "imagery, large scale typography, and intentional white space create a bold and graphic "
+        "interface that immerse the user in the experience.\n"
+        "An emphasis on user actions makes core functionality immediately apparent and provides "
+        "waypoints for the user.\n\n"
+
+        "Motion provides meaning.\n\n"
+
+        "Motion respects and reinforces the user as the prime mover. Primary user actions are "
+        "inflection points that initiate motion, transforming the whole design.\n"
+        "All action takes place in a single environment. Objects are presented to the user without "
+        "breaking the continuity of experience even as they transform and reorganize.\n"
+        "Motion is meaningful and appropriate, serving to focus attention and maintain continuity. "
+        "Feedback is subtle yet clear. Transitions are efﬁcient yet coherent.\n\n"
+
+        "3D world.\n\n"
+
+        "The material environment is a 3D space, which means all objects have x, y, and z "
+        "dimensions. The z-axis is perpendicularly aligned to the plane of the display, with the "
+        "positive z-axis extending towards the viewer. Every sheet of material occupies a single "
+        "position along the z-axis and has a standard 1dp thickness.\n"
+        "On the web, the z-axis is used for layering and not for perspective. The 3D world is "
+        "emulated by manipulating the y-axis.\n\n"
+
+        "Light and shadow.\n\n"
+
+        "Within the material environment, virtual lights illuminate the scene. Key lights create "
+        "directional shadows, while ambient light creates soft shadows from all angles.\n"
+        "Shadows in the material environment are cast by these two light sources. In Android "
+        "development, shadows occur when light sources are blocked by sheets of material at "
+        "various positions along the z-axis. On the web, shadows are depicted by manipulating the "
+        "y-axis only. The following example shows the card with a height of 6dp.\n\n"
+
+        "Resting elevation.\n\n"
+
+        "All material objects, regardless of size, have a resting elevation, or default elevation "
+        "that does not change. If an object changes elevation, it should return to its resting "
+        "elevation as soon as possible.\n\n"
+
+        "Component elevations.\n\n"
+
+        "The resting elevation for a component type is consistent across apps (e.g., FAB elevation "
+        "does not vary from 6dp in one app to 16dp in another app).\n"
+        "Components may have different resting elevations across platforms, depending on the depth "
+        "of the environment (e.g., TV has a greater depth than mobile or desktop).\n\n"
+
+        "Responsive elevation and dynamic elevation offsets.\n\n"
+
+        "Some component types have responsive elevation, meaning they change elevation in response "
+        "to user input (e.g., normal, focused, and pressed) or system events. These elevation "
+        "changes are consistently implemented using dynamic elevation offsets.\n"
+        "Dynamic elevation offsets are the goal elevation that a component moves towards, relative "
+        "to the component’s resting state. They ensure that elevation changes are consistent "
+        "across actions and component types. For example, all components that lift on press have "
+        "the same elevation change relative to their resting elevation.\n"
+        "Once the input event is completed or cancelled, the component will return to its resting "
+        "elevation.\n\n"
+
+        "Avoiding elevation interference.\n\n"
+
+        "Components with responsive elevations may encounter other components as they move between "
+        "their resting elevations and dynamic elevation offsets. Because material cannot pass "
+        "through other material, components avoid interfering with one another any number of ways, "
+        "whether on a per component basis or using the entire app layout.\n"
+        "On a component level, components can move or be removed before they cause interference. "
+        "For example, a floating action button (FAB) can disappear or move off screen before a "
+        "user picks up a card, or it can move if a snackbar appears.\n"
+        "On the layout level, design your app layout to minimize opportunities for interference. "
+        "For example, position the FAB to one side of stream of a cards so the FAB won’t interfere "
+        "when a user tries to pick up one of cards.\n\n"
+    </string>
 </resources>

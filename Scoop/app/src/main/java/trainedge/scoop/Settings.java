@@ -21,7 +21,6 @@ public class Settings extends AppCompatActivity implements CompoundButton.OnChec
     public static final String TAG = "Settings";
     private Switch notif;
     private SharedPreferences pref;
-    private Switch bold;
     private Switch mode;
 
 
@@ -40,8 +39,6 @@ public class Settings extends AppCompatActivity implements CompoundButton.OnChec
 
         notif = (Switch) findViewById(R.id.notif);
         notif.setOnCheckedChangeListener(this);
-
-        bold.setOnCheckedChangeListener(this);
         mode = (Switch) findViewById(R.id.switch_mode);
         mode.setOnCheckedChangeListener(this);
 
@@ -69,11 +66,11 @@ public class Settings extends AppCompatActivity implements CompoundButton.OnChec
         Spinner spinner2 = (Spinner) findViewById(R.id.font);
 // Create an ArrayAdapter using the string array and a default spinner layout
         ArrayAdapter<CharSequence> adapter2 = ArrayAdapter.createFromResource(this,
-                R.array.quality, android.R.layout.simple_spinner_item);
+                R.array.font, android.R.layout.simple_spinner_item);
 // Specify the layout to use when the list of choices appears
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 // Apply the adapter to the spinner
-        spinner1.setAdapter(adapter2);
+        spinner2.setAdapter(adapter2);
         spinner.setOnItemSelectedListener(this);
 
 

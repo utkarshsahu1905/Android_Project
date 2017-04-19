@@ -8,7 +8,14 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 import com.squareup.picasso.Picasso;
 
 import org.jsoup.Jsoup;
@@ -19,6 +26,7 @@ import org.jsoup.safety.Whitelist;
 import org.jsoup.select.Elements;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 import trainedge.scoop.Model.FeedModel;
 
@@ -59,7 +67,7 @@ public class CustomAdapter extends RecyclerView.Adapter<Holder> {
             holder.tvDesc.setHeight(0);
         }
         holder.tvPubDate.setText(String.valueOf(list_item.getPublishedDate()));
-        String imageLink = list_item.getImageLink();
+        final String imageLink = list_item.getImageLink();
         if (imageLink == null || imageLink.isEmpty()) {
             Picasso.with(context).load(findImageinDescription(description)).into(holder.feedImg);
         } else {
@@ -75,6 +83,48 @@ public class CustomAdapter extends RecyclerView.Adapter<Holder> {
             @Override
             public void onClick(View view) {
                 shareLink(list_item);
+            }
+        });
+        holder.ivFav.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                final String link = list_item.getItem().getLink();
+                final DatabaseReference fav = FirebaseDatabase.getInstance().getReference("favorites").child(FirebaseAuth.getInstance().getCurrentUser().getUid());
+                fav.addValueEventListener(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(DataSnapshot dataSnapshot) {
+                        HashMap<String, String> map = new HashMap<String, String>();
+                        map.put("title", list_item.getTitle());
+                        map.put("link", link);
+                        map.put("image", imageLink);
+
+                        if (dataSnapshot.hasChildren()) {
+                            for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
+                                if (snapshot.child("link").getValue(String.class).equals(link)) {
+                                    break;
+                                } else {
+                                    fav.push().setValue(map);
+                                    break;
+                                }
+
+                            }
+                        } else {
+                            fav.push().setValue(map, new DatabaseReference.CompletionListener() {
+                                @Override
+                                public void onComplete(DatabaseError databaseError, DatabaseReference databaseReference) {
+                                    if (databaseError == null) {
+                                        Toast.makeText(context, "Saved", Toast.LENGTH_SHORT).show();
+                                    }
+                                }
+                            });
+                        }
+                    }
+
+                    @Override
+                    public void onCancelled(DatabaseError databaseError) {
+
+                    }
+                });
             }
         });
     }

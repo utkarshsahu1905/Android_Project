@@ -33,18 +33,18 @@ public class FeedActivity extends AppCompatActivity {
     private RecyclerView rvFeedList;
     private CustomAdapter adapter;
 
-    int techurls[]=new int[]{R.string.techcrunch,R.string.techradar,R.string.cnet,R.string.wired,R.string.computer,R.string.techRepublic,R.string.zdnet};
-    /*int fashionurls[]=new int []{R.string.quanta,R.string.nationalgeographic,R.string.discovermagazine,R.string.sciencechannel,R.string.sciencedaily,R.string.sciencereddit,R.string.theatlantic};
-    int entertainmenturls[]=new int []{R.string.empirenews,R.string.spotify,R.string.rottentomatoes,R.string.mashables,R.string.indiewire,R.string.boxofficemojo,R.string.spin,R.string.makeuseof,R.string.salon,R.string.entertainmentweekly};
-    int educationurls[]=new int []{R.string.photographmag,R.string.photographyreddit,R.string.photographytheverge,R.string.pixels,R.string.expertphotography,R.string.dailypuppy,R.string.dkphotography,R.string.diyphotographystuff};
-    int businessurls[]=new  int []{};
-    int travelurls[]=new int[]{};
-    int foodurls[]=new int[]{};
-    int sportsurls[]= new int[]{};
-    int gadgetsurla[]=new int[]{};
-    int newsurls[]=new int[]{};
-    int healthandfitnessurls[]=new int*/
-    int politicsurls[]= new int[]{R.string.politicshome, R.string.realclear,R.string.economist,R.string.politico,R.string.economictimes,R.string.newyorker,R.string.washingtontimes};
+    int techurls[]=new int[]{R.string.techcrunch,R.string.techradar,R.string.cnet,R.string.life,R.string.elweb,R.string.balu,R.string.komodo};
+    int entertainmenturls[]=new int []{R.string.cartoon,R.string.split,R.string.dilbert,R.string.daily,R.string.flowing,R.string.panel};
+    int educationurls[]=new int []{R.string.bbcnewseducationandfamily,R.string.bigideas,R.string.bookbasset,R.string.brainpickings,R.string.creativityandinnovation,R.string.dolectures,R.string.learnanythingnetwork,R.string.schooltech};
+    int businessurls[]=new  int []{R.string.hertwocents,R.string.calculatedrisk,R.string.nakedcapitalism,R.string.theatlantic,R.string.entrepreneur,R.string.hbr,R.string.bw,R.string.cb};
+    int travelurls[]=new int[]{R.string.beautifulplace,R.string.cheapest,R.string.ibtimes,R.string.theflight,R.string.gadling};
+    int foodurls[]=new int[]{R.string.cookbook,R.string.american,R.string.gardening,R.string.tastebook,R.string.recipes,R.string.makeit,R.string.cake};
+    int sportsurls[]= new int[]{R.string.abcnewsespn,R.string.antaranews,R.string.washington,R.string.espn,R.string.fark,R.string.forthewin,R.string.nbcsports};
+    int gadgetsurla[]=new int[]{R.string.gotta,R.string.tools,R.string.techpin,R.string.slash};
+    int newsurls[]=new int[]{R.string.news3,R.string.five,R.string.rivva,R.string.abc,R.string.bbcnews,R.string.boing,R.string.cbs,R.string.cbc};
+    int healthandfitnessurls[]=new int[]{R.string.medindia,R.string.latestdiet,R.string.latestdrug,R.string.latestmental,R.string.latestdiabetes,R.string.latestwomen,R.string.latestmen,R.string.latestchild};
+    int politicsurls[]= new int[]{R.string.thedaily, R.string.theatlanti,R.string.liberal,R.string.weekly,R.string.newstates,R.string.snow,R.string.political};
+    int fashionurls[]=new int []{R.string.fashionjobs,R.string.fashionblogs,R.string.fashionindustry,R.string.fashiongroups,R.string.fashionevents,R.string.apparelsearch,R.string.spoonfulofstyle,R.string.fash365};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

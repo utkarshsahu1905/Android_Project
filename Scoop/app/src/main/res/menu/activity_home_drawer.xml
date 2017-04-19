@@ -10,9 +10,7 @@
         android:id="@+id/nav_fav"
         android:title="Favorite List"
         android:icon="@drawable/ic_favorite_border_black_24dp"/>
-    <item
-        android:id="@+id/nav_saved"
-        android:title="Saved Articles" />
+
 
 
     <item android:title="Communicate">
