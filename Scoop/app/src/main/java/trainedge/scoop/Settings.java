@@ -1,6 +1,7 @@
 
 package trainedge.scoop;
 
+import android.app.NotificationManager;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 
@@ -88,11 +89,13 @@ public class Settings extends AppCompatActivity implements CompoundButton.OnChec
     public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
         SharedPreferences.Editor editor = pref.edit();
         if (buttonView.getId() == R.id.notif) {
+            NotificationManager notificationManager = (NotificationManager)
+                    getSystemService(NOTIFICATION_SERVICE);
             editor.putBoolean("notif_option", isChecked);
             editor.apply();
         }
 
-        if (buttonView.getId() == R.id.switch_mode) {
+       if (buttonView.getId() == R.id.switch_mode) {
             getApplication().setTheme(R.style.BlackTheme);
         } else {
             getApplication().setTheme(R.style.LightTheme);

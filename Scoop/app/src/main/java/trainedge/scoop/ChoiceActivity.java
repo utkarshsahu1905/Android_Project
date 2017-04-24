@@ -57,6 +57,8 @@ public class ChoiceActivity extends AppCompatActivity implements AdapterView.OnI
         setContentView(R.layout.activity_choice);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
         pbStatus = (ProgressBar) findViewById(R.id.pbStatus);
         choicesTech.put("Techcrunch", R.string.techcrunch);
         choicesTech.put("Komodo Media", R.string.komodo);

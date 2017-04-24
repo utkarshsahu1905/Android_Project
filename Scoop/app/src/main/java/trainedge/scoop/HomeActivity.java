@@ -2,9 +2,14 @@ package trainedge.scoop;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Bitmap;
+import android.graphics.BitmapShader;
+import android.graphics.Canvas;
+import android.graphics.Paint;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
+import android.support.design.internal.NavigationMenuPresenter;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
@@ -18,6 +23,8 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.CompoundButton;
+import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.appinvite.AppInvite;
@@ -32,6 +39,8 @@ import com.facebook.AccessToken;
 import com.facebook.login.LoginManager;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.squareup.picasso.Picasso;
+import com.squareup.picasso.Transformation;
 
 import java.util.ArrayList;
 
@@ -46,14 +55,14 @@ public class HomeActivity extends AppCompatActivity
     private FirebaseAuth mAuth;
     private FirebaseAuth.AuthStateListener mAuthListener;
     private GoogleApiClient mGoogleApiClient;
-    public static final String TAG="HomeActivity";
-
+    public static final String TAG = "HomeActivity";
 
 
     private ArrayList<CategoryModel> CategoryList;
     private RecyclerView rvCategory;
 
     private CategoryAdapter adapter;
+    private View headerView;
 
 
     @Override
@@ -63,7 +72,6 @@ public class HomeActivity extends AppCompatActivity
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         //Button lgt =
-
 
 
         mAuth = FirebaseAuth.getInstance();
@@ -90,18 +98,21 @@ public class HomeActivity extends AppCompatActivity
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
-        drawer.setDrawerListener(toggle);
+        drawer.addDrawerListener(toggle);
         toggle.syncState();
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
+        headerView = navigationView.getHeaderView(0);
+        updateui(headerView);
 
         CategoryList = new ArrayList<>();
 
 
         rvCategory = (RecyclerView) findViewById(R.id.rvCategory);
-        GridLayoutManager manager=new GridLayoutManager(this,2);
+        GridLayoutManager manager = new GridLayoutManager(this, 2);
+
 
         rvCategory.setLayoutManager(manager);
         generateCategories();
@@ -125,36 +136,36 @@ public class HomeActivity extends AppCompatActivity
         adapter = new CategoryAdapter(CategoryList);
         rvCategory.setAdapter(adapter);
 
-    // Create an auto-managed GoogleApiClient with access to App Invites.
-    mGoogleApiClient = new GoogleApiClient.Builder(this)
-            .addApi(AppInvite.API)
+        // Create an auto-managed GoogleApiClient with access to App Invites.
+        mGoogleApiClient = new GoogleApiClient.Builder(this)
+                .addApi(AppInvite.API)
                 .enableAutoManage(this, this)
                 .build();
 
-    // Check for App Invite invitations and launch deep-link activity if possible.
-    // Requires that an Activity is registered in AndroidManifest.xml to handle
-    // deep-link URLs.
-    boolean autoLaunchDeepLink = true;
+        // Check for App Invite invitations and launch deep-link activity if possible.
+        // Requires that an Activity is registered in AndroidManifest.xml to handle
+        // deep-link URLs.
+        boolean autoLaunchDeepLink = true;
         AppInvite.AppInviteApi.getInvitation(mGoogleApiClient, this, autoLaunchDeepLink)
-            .setResultCallback(
+                .setResultCallback(
                         new ResultCallback<AppInviteInvitationResult>() {
-        @Override
-        public void onResult(AppInviteInvitationResult result) {
-            Log.d(TAG, "getInvitation:onResult:" + result.getStatus());
-            if (result.getStatus().isSuccess()) {
-                // Extract information from the intent
-                Intent intent = result.getInvitationIntent();
-                String deepLink = AppInviteReferral.getDeepLink(intent);
-                String invitationId = AppInviteReferral.getInvitationId(intent);
+                            @Override
+                            public void onResult(AppInviteInvitationResult result) {
+                                Log.d(TAG, "getInvitation:onResult:" + result.getStatus());
+                                if (result.getStatus().isSuccess()) {
+                                    // Extract information from the intent
+                                    Intent intent = result.getInvitationIntent();
+                                    String deepLink = AppInviteReferral.getDeepLink(intent);
+                                    String invitationId = AppInviteReferral.getInvitationId(intent);
 
-                // Because autoLaunchDeepLink = true we don't have to do anything
-                // here, but we could set that to false and manually choose
-                // an Activity to launch to handle the deep link here.
-                // ...
-            }
-        }
-    });
-}
+                                    // Because autoLaunchDeepLink = true we don't have to do anything
+                                    // here, but we could set that to false and manually choose
+                                    // an Activity to launch to handle the deep link here.
+                                    // ...
+                                }
+                            }
+                        });
+    }
 
 
     private void onInviteClicked() {
@@ -182,10 +193,9 @@ public class HomeActivity extends AppCompatActivity
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.home, menu);
 
-                    return true;
+        return true;
 
-                }
-
+    }
 
 
     @Override
@@ -215,11 +225,11 @@ public class HomeActivity extends AppCompatActivity
         switch (item.getItemId()) {
 
             case R.id.nav_fav:
-                Intent fav=new Intent(HomeActivity.this,FavoritesActivity.class);
+                Intent fav = new Intent(HomeActivity.this, FavoritesActivity.class);
                 startActivity(fav);
                 break;
             case R.id.nav_profile:
-                Intent pro=new Intent(HomeActivity.this,GetProfile.class);
+                Intent pro = new Intent(HomeActivity.this, GetProfile.class);
                 startActivity(pro);
                 break;
 
@@ -241,18 +251,18 @@ public class HomeActivity extends AppCompatActivity
             case R.id.activity_about:
                 Intent aboutIntent = new Intent(HomeActivity.this, Aboutus.class);
                 startActivity(aboutIntent);
-            break;
-            case  R.id.activity_logout:
-            mAuth.signOut();
-            try {
-                LoginManager.getInstance().logOut();
-                AccessToken.setCurrentAccessToken(null);
-            } catch (Exception ignored) {
+                break;
+            case R.id.activity_logout:
+                mAuth.signOut();
+                try {
+                    LoginManager.getInstance().logOut();
+                    AccessToken.setCurrentAccessToken(null);
+                } catch (Exception ignored) {
 
-            }
-            Intent lgtIntent = new Intent(HomeActivity.this, LoginActivity.class);
-            startActivity(lgtIntent);
-            finish();
+                }
+                Intent lgtIntent = new Intent(HomeActivity.this, LoginActivity.class);
+                startActivity(lgtIntent);
+                finish();
                 break;
 
 
@@ -289,6 +299,7 @@ public class HomeActivity extends AppCompatActivity
     public void onConnectionFailed(@NonNull ConnectionResult connectionResult) {
 
     }
+
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
@@ -307,8 +318,62 @@ public class HomeActivity extends AppCompatActivity
             }
         }
     }
-    private void showMessage(String msg){
-        Toast.makeText(this,msg, Toast.LENGTH_SHORT).show();
+
+    private void showMessage(String msg) {
+        Toast.makeText(this, msg, Toast.LENGTH_SHORT).show();
 
     }
+
+    private void updateui(View headerView) {
+        ImageView imageView = (ImageView) headerView.findViewById(R.id.imageView);
+        TextView name = (TextView) headerView.findViewById(R.id.name);
+        TextView email = (TextView) headerView.findViewById(R.id.email);
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+        String username = user.getDisplayName();
+        String email1 = user.getEmail();
+        Uri photoUrl = user.getPhotoUrl();
+        name.setText(username);
+        email.setText(email1);
+        Picasso.with(this)
+                .load(photoUrl)
+                .transform(new CircleTransform())
+                .into(imageView);
+    }
+    private class CircleTransform implements Transformation {
+        @Override
+        public Bitmap transform(Bitmap source) {
+            int size = Math.min(source.getWidth(), source.getHeight());
+
+            int x = (source.getWidth() - size) / 2;
+            int y = (source.getHeight() - size) / 2;
+
+            Bitmap squaredBitmap = Bitmap.createBitmap(source, x, y, size, size);
+            if (squaredBitmap != source) {
+                source.recycle();
+            }
+
+            Bitmap bitmap = Bitmap.createBitmap(size, size, source.getConfig());
+
+            Canvas canvas = new Canvas(bitmap);
+            Paint paint = new Paint();
+            BitmapShader shader = new BitmapShader(squaredBitmap,
+                    BitmapShader.TileMode.CLAMP, BitmapShader.TileMode.CLAMP);
+            paint.setShader(shader);
+            paint.setAntiAlias(true);
+
+            float r = size / 2f;
+            canvas.drawCircle(r, r, r, paint);
+
+            squaredBitmap.recycle();
+            return bitmap;
+        }
+
+        @Override
+        public String key() {
+            return "circle";
+        }
+
+    }
+
 }
+

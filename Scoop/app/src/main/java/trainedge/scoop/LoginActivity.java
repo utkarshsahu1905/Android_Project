@@ -4,6 +4,7 @@ import android.app.ProgressDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Process;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.design.widget.BaseTransientBottomBar;
@@ -43,6 +44,9 @@ import com.google.firebase.auth.FacebookAuthProvider;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.GoogleAuthProvider;
+
+import java.io.IOException;
+import java.io.InterruptedIOException;
 
 import static android.R.attr.data;
 
@@ -264,45 +268,45 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 
     private TextWatcher GenericTextWatcher = new TextWatcher() {
         @Override
-        public void beforeTextChanged(CharSequence s, int start, int count, int after) {}
+        public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+        }
 
         @Override
         public void onTextChanged(CharSequence s, int start, int before,
                                   int count) {
 
-            if (email.getText().hashCode() == s.hashCode())
-            {
+            if (email.getText().hashCode() == s.hashCode()) {
                 email_onTextChanged(s);
-            }
-            else if (pass.getText().hashCode() == s.hashCode())
-            {
+            } else if (pass.getText().hashCode() == s.hashCode()) {
                 pass_onTextChanged(s);
             }
         }
+
         @Override
-        public void afterTextChanged(Editable s) {}
+        public void afterTextChanged(Editable s) {
+        }
 
     };
 
-    private void email_onTextChanged(CharSequence s){
+    private void email_onTextChanged(CharSequence s) {
         String string = s.toString();
-        if(string.length() < 10){
+        if (string.length() < 10) {
             email.setError("Recquired (10 characters minimum)");
         }
     }
 
-    private void pass_onTextChanged(CharSequence s){
+    private void pass_onTextChanged(CharSequence s) {
         String string = s.toString();
-        if(string.length() < 8){
+        if (string.length() < 8) {
             pass.setError("Recquired (8 characters minimum.)");
         }
     }
 
-    private void forgot(){
+    private void forgot() {
 
         AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(this);
         final EditText et = new EditText(this);
-        LinearLayout.LayoutParams lp= new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.MATCH_PARENT);
+        LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.MATCH_PARENT);
         et.setLayoutParams(lp);
         // set prompts.xml to alertdialog builder
         alertDialogBuilder.setView(et);
@@ -321,7 +325,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                                     Log.d(TAG, "Email sent.");
                                     Toast.makeText(LoginActivity.this, "Email sent please check.", Toast.LENGTH_LONG).show();
                                 }
-                                if(!task.isSuccessful()){
+                                if (!task.isSuccessful()) {
                                     Log.d(TAG, "Error Unauthorized email.");
                                     Toast.makeText(LoginActivity.this, "Invalid Email Address.", Toast.LENGTH_SHORT).show();
                                 }
@@ -329,8 +333,8 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                         });
             }
         });
-        alertDialogBuilder.setNegativeButton("Cancel",new DialogInterface.OnClickListener(){
-            public void onClick(DialogInterface dialog,int which){
+        alertDialogBuilder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int which) {
                 dialog.cancel();
             }
         });
@@ -340,14 +344,14 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         alertDialog.show();
     }
 
-    private void mysignin(){
+    private void mysignin() {
         String emai = email.getText().toString();
         String pasw = pass.getText().toString();
-        if(emai.length() < 10 || !emai.contains("@") || emai.isEmpty()){
+        if (emai.length() < 10 || !emai.contains("@") || emai.isEmpty()) {
             email.setError("Enter a valid email");
             return;
         }
-        if(pasw.length() < 8){
+        if (pasw.length() < 8) {
             pass.setError("Password must be at least 8 characters");
             return;
         }
@@ -370,12 +374,28 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                         }
                         if (task.isSuccessful()) {
                             progressDialog.dismiss();
-                            Intent homeint = new Intent(LoginActivity.this,HomeActivity.class);
+                            Intent homeint = new Intent(LoginActivity.this, HomeActivity.class);
                             startActivity(homeint);
                         }
 
                     }
                 });
     }
+
+    public boolean isOnline() {
+        Runtime runtime = Runtime.getRuntime();
+        try {
+            java.lang.Process ipProcess = runtime.exec("/system/bin/ping -c 1 8.8.8.8");
+            int exitValue = ipProcess.waitFor();
+            return (exitValue == 0);
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
+        return false;
     }
+}
+
 

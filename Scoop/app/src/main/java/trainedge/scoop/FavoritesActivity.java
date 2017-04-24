@@ -42,6 +42,9 @@ public class FavoritesActivity extends AppCompatActivity {
         setContentView(R.layout.activity_favorites);
         final List<FavModel> links = new ArrayList<>();
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
         appbar = (CollapsingToolbarLayout) findViewById(R.id.toolbar_layout);
         setSupportActionBar(toolbar);
         RecyclerView rvFavs = (RecyclerView) findViewById(R.id.rvFavs);

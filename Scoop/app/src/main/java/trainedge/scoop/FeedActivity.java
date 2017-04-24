@@ -64,6 +64,8 @@ public class FeedActivity extends AppCompatActivity implements SearchView.OnQuer
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_feed);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
         svSearch = (SearchView) findViewById(R.id.svFeed);
         svSearch.setOnQueryTextListener(this);
 

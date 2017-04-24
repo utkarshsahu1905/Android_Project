@@ -7,6 +7,7 @@ import android.support.annotation.NonNull;
 import android.support.v4.app.FragmentActivity;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
@@ -17,6 +18,7 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.UserInfo;
 import com.squareup.picasso.Picasso;
+
 
 public class GetProfile extends AppCompatActivity {
 
@@ -43,72 +45,44 @@ public class GetProfile extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_get_profile);
-        //Initialize ImageView
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setTitle("Scoop");
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
+        // create object
         imageView = (ImageView) findViewById(R.id.imageView);
-        name = (TextView) findViewById(R.id.name);
+        // name = (TextView) findViewById(R.id.name);
         email = (TextView) findViewById(R.id.email);
-        getCurrentUser();//Calling method
-
-        mAuth = FirebaseAuth.getInstance();
-        FirebaseAuth.AuthStateListener mAuthListener;
-        mAuthListener = new FirebaseAuth.AuthStateListener() {
-
-            @Override
-            public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
-                FirebaseUser user = firebaseAuth.getCurrentUser();
-
-                if (user != null) {
-                    //User is signed in
-                    Log.d(TAG, "onAuthStateChanged : signed_in");
+        auth = FirebaseAuth.getInstance();
+        user = auth.getCurrentUser();
+        if (user == null) {
+            finish();
 
 
-                } else {
-                    //User is Signed out
-                    Log.d(TAG, "onAuthStateChanged : signed_out ");
-
-                }
-            }
-        };
-
+        }
+        email.setText(user.getEmail());
 
         //Loading image from below url into imageView
-
         Picasso.with(this)
                 .load(user.getPhotoUrl())
                 .into(imageView);
 
+        mAuthListener = new FirebaseAuth.AuthStateListener() {
+            @Override
+            public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
+                FirebaseUser user = firebaseAuth.getCurrentUser();
+                if (user == null) {
+                    //user is signed in
+                    // dialog.dismiss();
+                    Intent detail = new Intent(GetProfile.this,LoginActivity.class);
+                    startActivity(detail);
+                    finish();
+                    detail.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                    startActivity(detail);
+                }
 
-    }
-
-
-
-    public void getCurrentUser() {
-        try {
-            FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
-            if (user != null) {
-                String username = user.getDisplayName();
-                String useremail = user.getEmail();
-                String uid = user.getUid();
             }
-        }
-
-        catch(Exception e) {
-        }
+        };
     }
-
-    @Override
-    public void onStart() {
-        super.onStart();
-        mAuth.addAuthStateListener(mAuthListener);
-    }
-
-    @Override
-    public void onStop() {
-        super.onStop();
-        if (mAuthListener != null) {
-            mAuth.removeAuthStateListener(mAuthListener);
-        }
-    }
-
-
 }
