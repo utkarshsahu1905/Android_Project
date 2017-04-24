@@ -43,14 +43,14 @@ public class Settings extends AppCompatActivity implements CompoundButton.OnChec
         mode.setOnCheckedChangeListener(this);
 
 
-        Spinner spinner = (Spinner) findViewById(R.id.lang);
+        /*Spinner spinner = (Spinner) findViewById(R.id.lang);
 // Create an ArrayAdapter using the string array and a default spinner layout
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
                 R.array.lang, android.R.layout.simple_spinner_item);
 // Specify the layout to use when the list of choices appears
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 // Apply the adapter to the spinner
-        spinner.setAdapter(adapter);
+        spinner.setAdapter(adapter);*/
 
 
         Spinner spinner1 = (Spinner) findViewById(R.id.quality);
@@ -58,12 +58,12 @@ public class Settings extends AppCompatActivity implements CompoundButton.OnChec
         ArrayAdapter<CharSequence> adapter1 = ArrayAdapter.createFromResource(this,
                 R.array.quality, android.R.layout.simple_spinner_item);
 // Specify the layout to use when the list of choices appears
-        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        adapter1.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 // Apply the adapter to the spinner
         spinner1.setAdapter(adapter1);
-        spinner.setOnItemSelectedListener(this);
+        spinner1.setOnItemSelectedListener(this);
 
-        Spinner spinner2 = (Spinner) findViewById(R.id.font);
+        /*Spinner spinner2 = (Spinner) findViewById(R.id.font);
 // Create an ArrayAdapter using the string array and a default spinner layout
         ArrayAdapter<CharSequence> adapter2 = ArrayAdapter.createFromResource(this,
                 R.array.font, android.R.layout.simple_spinner_item);
@@ -71,7 +71,7 @@ public class Settings extends AppCompatActivity implements CompoundButton.OnChec
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 // Apply the adapter to the spinner
         spinner2.setAdapter(adapter2);
-        spinner.setOnItemSelectedListener(this);
+        spinner.setOnItemSelectedListener(this);*/
 
 
         updateUI();

@@ -1,18 +1,36 @@
 package trainedge.scoop;
 
-        import android.content.Intent;
-        import android.os.Bundle;
-        import android.support.v7.app.AppCompatActivity;
-        import android.support.v7.widget.RecyclerView;
-        import android.support.v7.widget.Toolbar;
-        import android.view.View;
-        import android.widget.AdapterView;
-        import android.widget.ArrayAdapter;
-        import android.widget.ListView;
+import android.content.Intent;
+import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.SearchView;
+import android.support.v7.widget.Toolbar;
+import android.view.MenuItem;
+import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
+import android.widget.EditText;
+import android.widget.ListView;
+import android.widget.ProgressBar;
+import android.widget.Toast;
 
-        import java.util.HashMap;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.ValueEventListener;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.List;
+
+import trainedge.scoop.Model.FeedModel;
 
 public class ChoiceActivity extends AppCompatActivity implements AdapterView.OnItemClickListener {
+
+    private FeedActivity adapter;
+
+    private ProgressBar pbStatus;
+
 
     private RecyclerView rvCategory;
     HashMap<String, Integer> choicesTech = new HashMap<>();
@@ -39,6 +57,7 @@ public class ChoiceActivity extends AppCompatActivity implements AdapterView.OnI
         setContentView(R.layout.activity_choice);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+        pbStatus = (ProgressBar) findViewById(R.id.pbStatus);
         choicesTech.put("Techcrunch", R.string.techcrunch);
         choicesTech.put("Komodo Media", R.string.komodo);
         choicesTech.put("BaluArt", R.string.balu);
@@ -48,7 +67,7 @@ public class ChoiceActivity extends AppCompatActivity implements AdapterView.OnI
         choicesTech.put("Techradar", R.string.techradar);
 
         choicesGadgets.put("Gottabemobile", R.string.gotta);
-        choicesGadgets.put("Tools and Toys" , R.string.tools);
+        choicesGadgets.put("Tools and Toys", R.string.tools);
         choicesGadgets.put("TechPin", R.string.techpin);
         choicesGadgets.put("SlashGear", R.string.slash);
 
@@ -84,7 +103,7 @@ public class ChoiceActivity extends AppCompatActivity implements AdapterView.OnI
         choicesFashion.put("Fashion Events", R.string.fashionevents);
         choicesFashion.put("Apparel Search", R.string.apparelsearch);
         choicesFashion.put("Spoonful of Style", R.string.spoonfulofstyle);
-        choicesFashion.put("Fashion365",R.string.fash365);
+        choicesFashion.put("Fashion365", R.string.fash365);
 
         choicesEducation.put("BBC News- Education and Family", R.string.bbcnewseducationandfamily);
         choicesEducation.put("Big Ideas", R.string.bigideas);
@@ -135,7 +154,6 @@ public class ChoiceActivity extends AppCompatActivity implements AdapterView.OnI
         choicesHealth_and_fitness.put("Latest Women Health", R.string.latestwomen);
         choicesHealth_and_fitness.put("Latest Men Health", R.string.latestmen);
         choicesHealth_and_fitness.put("Latest Child Health", R.string.latestchild);
-
 
 
         lvChoice = (ListView) findViewById(R.id.lvChoice);
@@ -193,7 +211,7 @@ public class ChoiceActivity extends AppCompatActivity implements AdapterView.OnI
                     feedNames = choicesFashion.keySet().toArray();
                     adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, feedNames);
                     break;
-                case -1:
+                case 12:
                     megaList = new HashMap<String, Integer>();
                     megaList.putAll(choicesTech);
                     megaList.putAll(choicesFashion);
@@ -214,7 +232,7 @@ public class ChoiceActivity extends AppCompatActivity implements AdapterView.OnI
             }
             lvChoice.setAdapter(adapter);
             lvChoice.setOnItemClickListener(this);
-        }
+         }
     }
 
     @Override
@@ -268,5 +286,5 @@ public class ChoiceActivity extends AppCompatActivity implements AdapterView.OnI
         feedIntent.putExtra("trainedge.scoop.EXTRA_NAME", feedKey);
         startActivity(feedIntent);
     }
-}
 
+}

@@ -62,7 +62,11 @@ public class CustomAdapter extends RecyclerView.Adapter<Holder> {
         String description = parse_html(list_item.getDescription());
         //Log.i("feed1", description);
         if (!description.isEmpty()) {
-            holder.tvDesc.setText(description);
+            try {
+                holder.tvDesc.setText(description.substring(0, 70));
+            } catch (Exception e) {
+                holder.tvDesc.setText(description);
+            }
         } else {
             holder.tvDesc.setHeight(0);
         }
@@ -194,13 +198,19 @@ public class CustomAdapter extends RecyclerView.Adapter<Holder> {
     }
 
     public void setListContent(ArrayList<FeedModel> list_members) {
+
         this.list_members = list_members;
-        notifyItemRangeChanged(0, list_members.size());
+        //notifyItemRangeChanged(0, list_members.size());
+        notifyDataSetChanged();
 
     }
 
     @Override
     public int getItemCount() {
         return list_members.size();
+    }
+
+    public void refreshLibraryList(ArrayList<FeedModel> searchList) {
+        setListContent(searchList);
     }
 }

@@ -2,10 +2,12 @@ package trainedge.scoop;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -16,6 +18,15 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.CompoundButton;
+import android.widget.Toast;
+
+import com.google.android.gms.appinvite.AppInvite;
+import com.google.android.gms.appinvite.AppInviteInvitation;
+import com.google.android.gms.appinvite.AppInviteInvitationResult;
+import com.google.android.gms.appinvite.AppInviteReferral;
+import com.google.android.gms.common.ConnectionResult;
+import com.google.android.gms.common.api.GoogleApiClient;
+import com.google.android.gms.common.api.ResultCallback;
 
 import com.facebook.AccessToken;
 import com.facebook.login.LoginManager;
@@ -28,11 +39,15 @@ import java.util.ArrayList;
 
 public class HomeActivity extends AppCompatActivity
 
-         implements NavigationView.OnNavigationItemSelectedListener, CompoundButton.OnCheckedChangeListener, View.OnClickListener {
+         implements NavigationView.OnNavigationItemSelectedListener, CompoundButton.OnCheckedChangeListener, View.OnClickListener, GoogleApiClient.OnConnectionFailedListener {
 
     private SharedPreferences pref;
+    private static final int REQUEST_INVITE = 0;
     private FirebaseAuth mAuth;
     private FirebaseAuth.AuthStateListener mAuthListener;
+    private GoogleApiClient mGoogleApiClient;
+    public static final String TAG="HomeActivity";
+
 
 
     private ArrayList<CategoryModel> CategoryList;
@@ -81,6 +96,7 @@ public class HomeActivity extends AppCompatActivity
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
+
         CategoryList = new ArrayList<>();
 
 
@@ -108,8 +124,47 @@ public class HomeActivity extends AppCompatActivity
         CategoryList.add(new CategoryModel("Fashion", R.drawable.fashion));
         adapter = new CategoryAdapter(CategoryList);
         rvCategory.setAdapter(adapter);
-    }
 
+    // Create an auto-managed GoogleApiClient with access to App Invites.
+    mGoogleApiClient = new GoogleApiClient.Builder(this)
+            .addApi(AppInvite.API)
+                .enableAutoManage(this, this)
+                .build();
+
+    // Check for App Invite invitations and launch deep-link activity if possible.
+    // Requires that an Activity is registered in AndroidManifest.xml to handle
+    // deep-link URLs.
+    boolean autoLaunchDeepLink = true;
+        AppInvite.AppInviteApi.getInvitation(mGoogleApiClient, this, autoLaunchDeepLink)
+            .setResultCallback(
+                        new ResultCallback<AppInviteInvitationResult>() {
+        @Override
+        public void onResult(AppInviteInvitationResult result) {
+            Log.d(TAG, "getInvitation:onResult:" + result.getStatus());
+            if (result.getStatus().isSuccess()) {
+                // Extract information from the intent
+                Intent intent = result.getInvitationIntent();
+                String deepLink = AppInviteReferral.getDeepLink(intent);
+                String invitationId = AppInviteReferral.getInvitationId(intent);
+
+                // Because autoLaunchDeepLink = true we don't have to do anything
+                // here, but we could set that to false and manually choose
+                // an Activity to launch to handle the deep link here.
+                // ...
+            }
+        }
+    });
+}
+
+
+    private void onInviteClicked() {
+        Intent intent = new AppInviteInvitation.IntentBuilder(getString(R.string.invitation_title))
+                .setMessage(getString(R.string.invitation_message))
+                .setDeepLink(Uri.parse(getString(R.string.invitation_deep_link)))
+                .setCallToActionText(getString(R.string.invitation_cta))
+                .build();
+        startActivityForResult(intent, REQUEST_INVITE);
+    }
 
     @Override
     public void onBackPressed() {
@@ -145,29 +200,10 @@ public class HomeActivity extends AppCompatActivity
             Intent setIntent = new Intent(HomeActivity.this, Settings.class);
             startActivity(setIntent);
             return true;
-        } else if (id == R.id.activity_logout) {
-            mAuth.signOut();
-            try {
-                LoginManager.getInstance().logOut();
-                AccessToken.setCurrentAccessToken(null);
-            } catch (Exception ignored) {
-
-            }
-            Intent lgtIntent = new Intent(HomeActivity.this, LoginActivity.class);
-            startActivity(lgtIntent);
-            finish();
 
         } else if (id == R.id.activity_exit) {
             finish();
-        } else if (id == R.id.activity_search) {
-
-
-            // TODO: 09-Apr-17
-        } else if (id == R.id.activity_about) {
-            Intent aboutIntent = new Intent(HomeActivity.this, Aboutus.class);
-            startActivity(aboutIntent);
         }
-
 
         return super.onOptionsItemSelected(item);
     }
@@ -182,6 +218,10 @@ public class HomeActivity extends AppCompatActivity
                 Intent fav=new Intent(HomeActivity.this,FavoritesActivity.class);
                 startActivity(fav);
                 break;
+            case R.id.nav_profile:
+                Intent pro=new Intent(HomeActivity.this,GetProfile.class);
+                startActivity(pro);
+                break;
 
             case R.id.nav_share:
                 Intent share = new Intent(Intent.ACTION_SEND);
@@ -191,10 +231,30 @@ public class HomeActivity extends AppCompatActivity
                 share.putExtra(Intent.EXTRA_TEXT, "Your friend has invited you to join the app./n To join click the link");
                 startActivity(Intent.createChooser(share, "Share via..."));
                 break;
+            case R.id.nav_invite:
+                onInviteClicked();
+                break;
             case R.id.nav_feedback:
                 Intent feedIntent = new Intent(HomeActivity.this, Feedback.class);
                 startActivity(feedIntent);
                 break;
+            case R.id.activity_about:
+                Intent aboutIntent = new Intent(HomeActivity.this, Aboutus.class);
+                startActivity(aboutIntent);
+            break;
+            case  R.id.activity_logout:
+            mAuth.signOut();
+            try {
+                LoginManager.getInstance().logOut();
+                AccessToken.setCurrentAccessToken(null);
+            } catch (Exception ignored) {
+
+            }
+            Intent lgtIntent = new Intent(HomeActivity.this, LoginActivity.class);
+            startActivity(lgtIntent);
+            finish();
+                break;
+
 
         }
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -225,4 +285,30 @@ public class HomeActivity extends AppCompatActivity
     }
 
 
+    @Override
+    public void onConnectionFailed(@NonNull ConnectionResult connectionResult) {
+
+    }
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        Log.d(TAG, "onActivityResult: requestCode=" + requestCode + ", resultCode=" + resultCode);
+
+        if (requestCode == REQUEST_INVITE) {
+            if (resultCode == RESULT_OK) {
+                // Get the invitation IDs of all sent messages
+                String[] ids = AppInviteInvitation.getInvitationIds(resultCode, data);
+                for (String id : ids) {
+                    Log.d(TAG, "onActivityResult: sent invitation " + id);
+                }
+            } else {
+                // Sending failed or it was canceled, show failure message to the user
+                // ...
+            }
+        }
+    }
+    private void showMessage(String msg){
+        Toast.makeText(this,msg, Toast.LENGTH_SHORT).show();
+
+    }
 }

@@ -209,4 +209,12 @@
         "For example, position the FAB to one side of stream of a cards so the FAB won’t interfere "
         "when a user tries to pick up one of cards.\n\n"
     </string>
+
+    <string name="title_activity_deep_link">DeepLinkActivity</string>
+    <string name="invitation_message">try the best information gathering app on play store</string>
+    <string name="Deep_link_default">Deep link not set</string>
+    <string name="invitation_id_default">Invitation id not set</string>
+    <string name="invitation_title">Send App Invite QuickStart</string>
+    <string name="invitation_cta">Install!</string>
+    <string name="invitation_deep_link"></string>
 </resources>

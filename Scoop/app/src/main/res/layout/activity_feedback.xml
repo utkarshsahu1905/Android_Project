@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/bg_green"
+    android:background="@drawable/xxxxxx"
     android:orientation="vertical"
     tools:context="trainedge.scoop.Feedback">
     <android.support.design.widget.AppBarLayout
@@ -16,7 +16,7 @@
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
-            android:background="?attr/colorPrimary"
+            android:background="@color/colorPrimary"
             app:popupTheme="@style/AppTheme.PopupOverlay" />
 
     </android.support.design.widget.AppBarLayout>
@@ -29,7 +29,7 @@
         android:paddingLeft="8dp"
         android:paddingRight="8dp"
         android:text="If there is any concern regarding this app, you will directly provide us the feedback. We will be glad of solving the querry"
-        android:textColor="#001"
+        android:textColor="@color/cardview_light_background"
         android:textSize="18sp" />
 
     <EditText
@@ -42,7 +42,8 @@
         android:lines="10"
         android:paddingLeft="8dp"
         android:paddingRight="8dp"
-        android:paddingTop="30dp" />
+        android:paddingTop="30dp"
+        android:textColor="@color/cardview_light_background" />
 
     <EditText
         android:id="@+id/er_mail"
