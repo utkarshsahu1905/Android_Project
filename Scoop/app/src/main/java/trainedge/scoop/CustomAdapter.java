@@ -1,5 +1,6 @@
 package trainedge.scoop;
 
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
@@ -93,6 +94,7 @@ public class CustomAdapter extends RecyclerView.Adapter<Holder> {
             @Override
             public void onClick(View v) {
                 final String link = list_item.getItem().getLink();
+                final ProgressDialog dialog = new ProgressDialog(context);
                 final DatabaseReference fav = FirebaseDatabase.getInstance().getReference("favorites").child(FirebaseAuth.getInstance().getCurrentUser().getUid());
                 fav.addValueEventListener(new ValueEventListener() {
                     @Override
@@ -108,9 +110,9 @@ public class CustomAdapter extends RecyclerView.Adapter<Holder> {
                                     break;
                                 } else {
                                     fav.push().setValue(map);
+                                    Toast.makeText(context, "saved", Toast.LENGTH_SHORT).show();
                                     break;
                                 }
-
                             }
                         } else {
                             fav.push().setValue(map, new DatabaseReference.CompletionListener() {
@@ -118,6 +120,8 @@ public class CustomAdapter extends RecyclerView.Adapter<Holder> {
                                 public void onComplete(DatabaseError databaseError, DatabaseReference databaseReference) {
                                     if (databaseError == null) {
                                         Toast.makeText(context, "Saved", Toast.LENGTH_SHORT).show();
+                                    } else {
+                                        Toast.makeText(context, databaseError.getMessage(), Toast.LENGTH_SHORT).show();
                                     }
                                 }
                             });
@@ -126,7 +130,7 @@ public class CustomAdapter extends RecyclerView.Adapter<Holder> {
 
                     @Override
                     public void onCancelled(DatabaseError databaseError) {
-
+                        Toast.makeText(context, databaseError.getMessage(), Toast.LENGTH_SHORT).show();
                     }
                 });
             }

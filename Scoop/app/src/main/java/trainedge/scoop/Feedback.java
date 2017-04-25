@@ -41,11 +41,8 @@ public class Feedback extends AppCompatActivity implements View.OnClickListener,
 
         if (v.getId() == R.id.submit) {
             submitf();
-            Toast.makeText(getBaseContext(),"Your Review has been submitted!",Toast.LENGTH_LONG).show();
-            Intent i=new Intent(Feedback.this,HomeActivity.class);
-            startActivity(i);
-            finish();
         }
+
     }
 
     @Override
@@ -87,6 +84,9 @@ public class Feedback extends AppCompatActivity implements View.OnClickListener,
         startActivity(Intent.createChooser(emailint, "Send feedback using..."));
         erfeed.setText("");
         ermail.setText("");
+
+
     }
+
 
 }

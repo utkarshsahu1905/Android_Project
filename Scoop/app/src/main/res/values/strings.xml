@@ -16,7 +16,7 @@
     <!--<string name="cnet">Cnet</string>-->
     <!--<string name="life">LifeHack</string>-->
     <!--<string name="komodo">Komodo Media</string>-->
-    <!--<string name="elweb">El Webmaster</string>-->
+    <!--<string name="win">Windows Reference</string>-->
     <!--<string name="balu">BaluArt</string>-->
 
     <!--<string name="fashionjobs">Fashion Jobs</string>-->
@@ -79,6 +79,7 @@
     <!--<string name="tools">Tools and Toys</string>-->
     <!--<string name="techpin">TechPin</string>-->
     <!--<string name="slash">SlashGear</string>-->
+    <!--<string name="newl">Newlaunches</string>-->
 
     <!--<string name="news3">3 News</string>-->
     <!--<string name="five">Five ThirtyEight</string>-->
@@ -102,7 +103,7 @@
     <!--<string name="theatlanti">The Atlantic</string>-->
     <!--<string name="liberal">Liberal Conspiracy</string>-->
     <!--<string name="weekly">Weekly Sift</string>-->
-    <!--<string name="newstates">New Statesman</string>-->
+    <!--<string name="newstates">Polling: Political Polls</string>-->
     <!--<string name="snow">Snowblog</string>-->
     <!--<string name="political">Political Wire</string>-->
 

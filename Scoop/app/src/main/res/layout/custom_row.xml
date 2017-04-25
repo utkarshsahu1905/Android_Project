@@ -110,7 +110,7 @@
             android:layout_alignTop="@+id/ivShare"
             android:layout_toLeftOf="@+id/ivShare"
             android:layout_toStartOf="@+id/ivShare"
-            android:background="@color/cardview_dark_background"
+            android:background="?attr/selectableItemBackground"
             android:padding="8dp"
             app:srcCompat="@drawable/ic_favorite_border_black_24dp" />
 

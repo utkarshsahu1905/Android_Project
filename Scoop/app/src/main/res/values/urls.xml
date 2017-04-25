@@ -6,7 +6,7 @@
     <!-- valid-->
     <string name="balu">http://feeds.feedburner.com/baluart</string>
     <!-- valid-->
-    <string name="elweb">http://feeds2.feedburner.com/elwebmastercom</string>
+    <string name="win">http://feeds.feedburner.com/WindowsReference</string>
     <!-- valid-->
     <string name="techradar">https://techradar1.wordpress.com/feed/</string>
     <!-- valid-->
@@ -131,6 +131,8 @@
     <!-- valid-->
     <string name="slash">http://feeds.feedburner.com/slashgear</string>
     <!-- valid-->
+    <string name="newl">http://www.newlaunches.com/atom.xml</string>
+    <!-- valid-->
 
     <string name="news3">http://feeds.feedburner.com/co/Mvia</string>
     <!-- valid-->
@@ -174,7 +176,7 @@
     <!-- valid-->
     <string name="weekly">http://weeklysift.com/feed/</string>
     <!-- valid-->
-    <string name="newstates">http://www.newstatesman.com/feeds/contents.rssl</string>
+    <string name="newstates">http://feeds.washingtonpost.com/rss/politics/polling</string>
     <!-- valid-->
     <string name="snow">http://blogs.channel4.com/snowblog/feed/</string>
     <!-- valid-->

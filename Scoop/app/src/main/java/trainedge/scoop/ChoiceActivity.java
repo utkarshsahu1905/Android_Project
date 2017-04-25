@@ -64,7 +64,7 @@ public class ChoiceActivity extends AppCompatActivity implements AdapterView.OnI
         choicesTech.put("Komodo Media", R.string.komodo);
         choicesTech.put("BaluArt", R.string.balu);
         choicesTech.put("LifeHack", R.string.life);
-        choicesTech.put("El Webmaster", R.string.elweb);
+        choicesTech.put("Windows Reference", R.string.win);
         choicesTech.put("Cnet", R.string.cnet);
         choicesTech.put("Techradar", R.string.techradar);
 
@@ -72,6 +72,7 @@ public class ChoiceActivity extends AppCompatActivity implements AdapterView.OnI
         choicesGadgets.put("Tools and Toys", R.string.tools);
         choicesGadgets.put("TechPin", R.string.techpin);
         choicesGadgets.put("SlashGear", R.string.slash);
+        choicesGadgets.put("Newlaunches",R.string.newl);
 
         choicesEntertainment.put("CartoonBrew", R.string.cartoon);
         choicesEntertainment.put("Splitsider", R.string.split);
@@ -85,7 +86,7 @@ public class ChoiceActivity extends AppCompatActivity implements AdapterView.OnI
         choicesPolitics.put("The Atlantic", R.string.theatlanti);
         choicesPolitics.put("Liberal Conspiracy", R.string.liberal);
         choicesPolitics.put("Weekly Sift", R.string.weekly);
-        choicesPolitics.put("New Statesman", R.string.newstates);
+        choicesPolitics.put("Polling: Political Polls", R.string.newstates);
         choicesPolitics.put("Snowblog", R.string.snow);
         choicesPolitics.put("Political Wire", R.string.political);
 

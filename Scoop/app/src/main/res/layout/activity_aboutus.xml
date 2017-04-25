@@ -4,15 +4,15 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-
+    android:background="@color/colorAccent"
     android:orientation="vertical"
     tools:context="trainedge.scoop.Aboutus">
 
     <android.support.design.widget.AppBarLayout
+        android:id="@+id/appBarLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:theme="@style/AppTheme.AppBarOverlay"
-        android:id="@+id/appBarLayout">
+        android:theme="@style/AppTheme.AppBarOverlay">
 
         <android.support.v7.widget.Toolbar
             android:id="@+id/toolbar"
@@ -35,7 +35,7 @@
         android:paddingLeft="8dp"
         android:paddingRight="8dp"
         android:text="As a developer we Prashant Dixit and Utkarsh Sahu thought to develop this app as our final year project required in college. We develop this under the guidance of a project teacher Mr.Zaid Kamil. We are thankful to him for his help."
-        android:textColor="@color/cardview_dark_background"
+        android:textColor="@color/cardview_light_background"
         android:textSize="18sp" />
 
     <TextView
@@ -49,17 +49,17 @@
         android:paddingLeft="8dp"
         android:paddingRight="8dp"
         android:text="App Version :- 1.0"
-        android:textColor="@color/cardview_dark_background"
+        android:textColor="@color/cardview_light_background"
         android:textSize="18sp" />
 
     <ImageView
         android:id="@+id/imageView2"
         android:layout_width="243dp"
         android:layout_height="143dp"
-        android:background="@drawable/my_logo"
-        android:layout_marginTop="41dp"
         android:layout_below="@+id/textView6"
-        android:layout_centerHorizontal="true" />
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="41dp"
+        android:background="@drawable/my_logo" />
 
     <TextView
         android:id="@+id/textView5"
@@ -74,7 +74,7 @@
         android:paddingRight="8dp"
         android:text="Scoop is an integrated android app.To access the data you need an internet connectivity.We provided you different categories followed by different sub categories. To know more about that categories you have to click on that menu. Using Scoop you will be able to get updated on different categories.
 The best feature of Scoop is you can select your own list from the given categories."
-        android:textColor="@color/cardview_dark_background"
+        android:textColor="@color/cardview_light_background"
         android:textSize="18sp" />
 
 

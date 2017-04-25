@@ -4,11 +4,12 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/colorAccent"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context="trainedge.scoop.Settings"
-    tools:showIn="@layout/activity_settings"
+    tools:layout_editor_absoluteX="0dp"
     tools:layout_editor_absoluteY="81dp"
-    tools:layout_editor_absoluteX="0dp">
+    tools:showIn="@layout/activity_settings">
 
     <TextView
         android:id="@+id/textView8"
@@ -74,41 +75,44 @@
         android:id="@+id/switch_mode"
         android:layout_width="106dp"
         android:layout_height="41dp"
-        tools:layout_constraintTop_creator="1"
-        tools:layout_constraintRight_creator="1"
-        tools:layout_constraintBottom_creator="1"
-        app:layout_constraintBottom_toBottomOf="@+id/notif"
-        android:layout_marginEnd="36dp"
-        app:layout_constraintRight_toRightOf="parent"
-        android:layout_marginTop="60dp"
         android:layout_marginBottom="58dp"
+        android:layout_marginEnd="36dp"
+        android:layout_marginRight="36dp"
+        android:layout_marginTop="60dp"
+        app:layout_constraintBottom_toBottomOf="@+id/notif"
+        app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="@+id/textView9"
-        android:layout_marginRight="36dp" />
+        tools:layout_constraintBottom_creator="1"
+        tools:layout_constraintRight_creator="1"
+        tools:layout_constraintTop_creator="1" />
 
     <Switch
         android:id="@+id/notif"
         android:layout_width="0dp"
         android:layout_height="35dp"
-        tools:layout_constraintTop_creator="1"
-        tools:layout_constraintRight_creator="1"
-        app:layout_constraintRight_toRightOf="@+id/quality"
-        tools:layout_constraintLeft_creator="1"
         app:layout_constraintLeft_toLeftOf="@+id/switch_mode"
-        app:layout_constraintTop_toTopOf="@+id/textView8" />
+        app:layout_constraintRight_toRightOf="@+id/quality"
+        app:layout_constraintTop_toTopOf="@+id/textView8"
+        tools:layout_constraintLeft_creator="1"
+        tools:layout_constraintRight_creator="1"
+        tools:layout_constraintTop_creator="1" />
 
     <Spinner
         android:id="@+id/quality"
-        android:layout_width="149dp"
-        android:layout_height="38dp"
-        tools:layout_constraintTop_creator="1"
-        tools:layout_constraintRight_creator="1"
-        tools:layout_constraintBottom_creator="1"
-        app:layout_constraintBottom_toTopOf="@+id/switch_mode"
-        android:layout_marginEnd="38dp"
-        app:layout_constraintRight_toRightOf="parent"
-        android:layout_marginTop="32dp"
+        android:layout_width="133dp"
+        android:layout_height="42dp"
         android:layout_marginBottom="22dp"
+        android:layout_marginEnd="38dp"
+        android:layout_marginRight="38dp"
+        android:layout_marginTop="32dp"
+        app:layout_constraintBottom_toTopOf="@+id/switch_mode"
+        app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        android:layout_marginRight="38dp" />
+        app:layout_constraintVertical_bias="0.0"
+        tools:layout_constraintBottom_creator="1"
+        tools:layout_constraintRight_creator="1"
+        tools:layout_constraintTop_creator="1"
+        tools:layout_editor_absoluteX="189dp"
+        tools:layout_editor_absoluteY="28dp" />
 
 </android.support.constraint.ConstraintLayout>

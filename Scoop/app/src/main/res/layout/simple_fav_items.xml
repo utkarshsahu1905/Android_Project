@@ -33,6 +33,6 @@
             android:adjustViewBounds="true"
             android:cropToPadding="true"
             android:scaleType="centerCrop"
-            app:srcCompat="@drawable/abx" />
+            app:srcCompat="@color/cardview_light_background" />
     </RelativeLayout>
 </android.support.v7.widget.CardView>

@@ -47,12 +47,12 @@ public class GetProfile extends AppCompatActivity {
         setContentView(R.layout.activity_get_profile);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        getSupportActionBar().setTitle("Scoop");
+        getSupportActionBar().setTitle("Profile Info");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         // create object
         imageView = (ImageView) findViewById(R.id.imageView);
-        // name = (TextView) findViewById(R.id.name);
+        name = (TextView) findViewById(R.id.name);
         email = (TextView) findViewById(R.id.email);
         auth = FirebaseAuth.getInstance();
         user = auth.getCurrentUser();
@@ -62,6 +62,7 @@ public class GetProfile extends AppCompatActivity {
 
         }
         email.setText(user.getEmail());
+        name.setText(user.getDisplayName());
 
         //Loading image from below url into imageView
         Picasso.with(this)

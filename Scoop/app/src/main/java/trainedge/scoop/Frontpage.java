@@ -26,7 +26,7 @@ public class Frontpage extends AppCompatActivity {
 
                 try {
                     scoop.startAnimation(a1);
-                    Thread.sleep(2000);
+                    Thread.sleep(3000);
                     ;
 
                 } catch (InterruptedException e) {
