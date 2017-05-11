@@ -96,7 +96,7 @@ public class CustomAdapter extends RecyclerView.Adapter<Holder> {
                 final String link = list_item.getItem().getLink();
                 final ProgressDialog dialog = new ProgressDialog(context);
                 final DatabaseReference fav = FirebaseDatabase.getInstance().getReference("favorites").child(FirebaseAuth.getInstance().getCurrentUser().getUid());
-                fav.addValueEventListener(new ValueEventListener() {
+                fav.addListenerForSingleValueEvent(new ValueEventListener() {
                     @Override
                     public void onDataChange(DataSnapshot dataSnapshot) {
                         HashMap<String, String> map = new HashMap<String, String>();
@@ -126,13 +126,15 @@ public class CustomAdapter extends RecyclerView.Adapter<Holder> {
                                 }
                             });
                         }
+
                     }
 
                     @Override
                     public void onCancelled(DatabaseError databaseError) {
-                        Toast.makeText(context, databaseError.getMessage(), Toast.LENGTH_SHORT).show();
+
                     }
                 });
+
             }
         });
     }

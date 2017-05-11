@@ -2,6 +2,7 @@ package trainedge.scoop;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -21,10 +22,25 @@ public class Category_activity extends AppCompatActivity {
     private RecyclerView rvCategory;
     private int item;
     private CategoryAdapter adapter;
+    private SharedPreferences pref;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        pref = getSharedPreferences("setting_pref", MODE_PRIVATE);
+        String theme = pref.getString("theme", "AppTheme");
+        if (theme.equals("Blue")) {
+            setTheme(R.style.Bluetheme);
+        } else if (theme.equals("Black")) {
+            setTheme(R.style.BlackTheme);
+        } else if (theme.equals("White")) {
+            setTheme(R.style.WhiteTheme);
+        }
+        else if (theme.equals("Pink")) {
+            setTheme(R.style.PinkTheme);
+        }else {
+            setTheme(R.style.AppTheme_NoActionBar);
+        }
         setContentView(R.layout.activity_category_activity);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);

@@ -41,18 +41,18 @@
     <!-- valid-->
     <string name="bookbasset">http://feeds.feedburner.com/bookbasset</string>
     <!-- valid-->
-    <string name="brainpickings"> http://feeds.feedburner.com/brainpickings/rss</string>
+    <string name="brainpickings">http://feeds.feedburner.com/brainpickings/rss</string>
     <!-- valid-->
     <string name="creativityandinnovation">http://keithsawyer.wordpress.com/feed/</string>
     <!-- valid-->
-    <string name="dolectures"> http://dolectures.com/feed/</string>
+    <string name="learning">http://feeds2.feedburner.com/LearningPoolBlog</string>
     <!-- valid-->
     <string name="learnanythingnetwork">http://feeds2.feedburner.com/LearnAnything</string>
     <!-- valid-->
-    <string name="schooltech"> http://www.lockergnome.com/schooltech/feed/</string>
+    <string name="elearn">http://feeds2.feedburner.com/elearninglounge</string>
     <!-- valid-->
 
-    <string name="hertwocents">http://hertwocents.com/feed/</string>
+    <string name="hertwocents">http://feeds.feedburner.com/BothSidesOfTheTable</string>
     <!-- valid-->
     <string name="calculatedrisk">http://feeds.feedburner.com/CalculatedRisk</string>
     <!-- valid-->
@@ -62,9 +62,9 @@
     <!-- valid-->
     <string name="entrepreneur">http://feeds.feedburner.com/entrepreneur/latest</string>
     <!-- valid-->
-    <string name="hbr">www. http://feeds.harvardbusiness.org/harvardbusiness/</string>
+    <string name="hbr">http://feeds.feedburner.com/ChiefMarketingTechnologist</string>
     <!-- valid-->
-    <string name="bw">http://www.businessweek.com/rss/bwdaily.rss</string>
+    <string name="bw">http://feeds.feedburner.com/marginalrevolution/feed</string>
     <!-- valid-->
     <string name="cb">http://feeds.washingtonpost.com/rss/capital_business</string>
     <!-- valid-->
@@ -97,30 +97,30 @@
     <!-- valid-->
     <string name="american">http://americandrink.net/rss</string>
     <!-- valid-->
-    <string name="gardening"> http://growchew.wordpress.com/feed/</string>
+    <string name="big">http://feeds.feedburner.com/bigovencom-recipeoftheday</string>
     <!-- valid-->
     <string name="tastebook">http://www.tastebook.com/blog/feed/</string>
     <!-- valid-->
     <string name="recipes">http://mobile.eatingwell.com/taxonomy/term/960/all/feed</string>
     <!-- valid-->
-    <string name="makeit">http://feeds.feedburner.com/eatingwell_make_it_tonight</string>
+    <string name="chickens">http://feeds.feedburner.com/SuzanneMcMinn</string>
     <!-- valid-->
     <string name="cake">http://feeds.feedburner.com/CakeWrecks</string>
     <!-- valid-->
 
-    <string name="abcnewsespn"> http://feeds.abcnews.com/abcnews/sportsheadlines</string>
+    <string name="abcnewsespn">http://feeds.abcnews.com/abcnews/sportsheadlines</string>
     <!-- valid-->
-    <string name="antaranews"> http://www.antaranews.com/en/rss/sports</string>
+    <string name="antaranews">http://www.antaranews.com/en/rss/sports</string>
     <!-- valid-->
-    <string name="washington">  http://feeds.washingtonpost.com/rss/sports/blogs-columns</string>
+    <string name="fight">http://feeds2.feedburner.com/fightline_news</string>
     <!-- valid-->
     <string name="espn">http://sports.espn.go.com/espn/rss/news</string>
     <!-- valid-->
     <string name="fark">http://www.fark.com/sports/fark.rss</string>
     <!-- valid-->
-    <string name="forthewin"> http://ftw.usatoday.com/feed/</string>
+    <string name="forthewin">http://ftw.usatoday.com/feed/</string>
     <!-- valid-->
-    <string name="nbcsports">http://nbcsports.msnbc.com/id/3032112/device/rss/rss.xml</string>
+    <string name="bloody">http://feeds.feedburner.com/sportsblogs/bloodyelbow</string>
     <!-- valid-->
 
     <string name="gotta">http://feeds.feedburner.com/Gottabemobile</string>
@@ -134,7 +134,7 @@
     <string name="newl">http://www.newlaunches.com/atom.xml</string>
     <!-- valid-->
 
-    <string name="news3">http://feeds.feedburner.com/co/Mvia</string>
+    <string name="news3">http://www.allword-news.co.uk/feed/</string>
     <!-- valid-->
     <string name="five">http://feeds.feedburner.com/538dotcom</string>
     <!-- valid-->

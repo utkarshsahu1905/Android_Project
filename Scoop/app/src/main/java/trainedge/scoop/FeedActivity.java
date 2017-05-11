@@ -32,7 +32,7 @@ import java.util.zip.DataFormatException;
 
 import trainedge.scoop.Model.FeedModel;
 
-public class FeedActivity extends AppCompatActivity implements SearchView.OnQueryTextListener, SearchView.OnCloseListener{
+public class FeedActivity extends AppCompatActivity implements SearchView.OnQueryTextListener, SearchView.OnCloseListener {
 
     private static final String TAG = "FEED_ACTIVITY";
     private ViewGroup flProgressContainer;
@@ -45,12 +45,12 @@ public class FeedActivity extends AppCompatActivity implements SearchView.OnQuer
 
     int techurls[] = new int[]{R.string.techcrunch, R.string.techradar, R.string.cnet, R.string.life, R.string.win, R.string.balu, R.string.komodo};
     int entertainmenturls[] = new int[]{R.string.cartoon, R.string.split, R.string.dilbert, R.string.daily, R.string.flowing, R.string.panel};
-    int educationurls[] = new int[]{R.string.bbcnewseducationandfamily, R.string.bigideas, R.string.bookbasset, R.string.brainpickings, R.string.creativityandinnovation, R.string.dolectures, R.string.learnanythingnetwork, R.string.schooltech};
+    int educationurls[] = new int[]{R.string.bbcnewseducationandfamily, R.string.bigideas, R.string.bookbasset, R.string.brainpickings, R.string.creativityandinnovation, R.string.learning, R.string.learnanythingnetwork, R.string.elearn};
     int businessurls[] = new int[]{R.string.hertwocents, R.string.calculatedrisk, R.string.nakedcapitalism, R.string.theatlantic, R.string.entrepreneur, R.string.hbr, R.string.bw, R.string.cb};
     int travelurls[] = new int[]{R.string.beautifulplace, R.string.cheapest, R.string.ibtimes, R.string.theflight, R.string.gadling};
-    int foodurls[] = new int[]{R.string.cookbook, R.string.american, R.string.gardening, R.string.tastebook, R.string.recipes, R.string.makeit, R.string.cake};
-    int sportsurls[] = new int[]{R.string.abcnewsespn, R.string.antaranews, R.string.washington, R.string.espn, R.string.fark, R.string.forthewin, R.string.nbcsports};
-    int gadgetsurla[] = new int[]{R.string.gotta, R.string.tools, R.string.techpin, R.string.slash,R.string.newl};
+    int foodurls[] = new int[]{R.string.cookbook, R.string.american, R.string.big, R.string.tastebook, R.string.recipes, R.string.chickens, R.string.cake};
+    int sportsurls[] = new int[]{R.string.abcnewsespn, R.string.antaranews, R.string.fight, R.string.espn, R.string.fark, R.string.forthewin, R.string.bloody};
+    int gadgetsurla[] = new int[]{R.string.gotta, R.string.tools, R.string.techpin, R.string.slash, R.string.newl};
     int newsurls[] = new int[]{R.string.news3, R.string.five, R.string.rivva, R.string.abc, R.string.bbcnews, R.string.boing, R.string.cbs, R.string.cbc};
     int healthandfitnessurls[] = new int[]{R.string.medindia, R.string.latestdiet, R.string.latestdrug, R.string.latestmental, R.string.latestdiabetes, R.string.latestwomen, R.string.latestmen, R.string.latestchild};
     int politicsurls[] = new int[]{R.string.thedaily, R.string.theatlanti, R.string.liberal, R.string.weekly, R.string.newstates, R.string.snow, R.string.political};
@@ -94,8 +94,6 @@ public class FeedActivity extends AppCompatActivity implements SearchView.OnQuer
         adapter = new CustomAdapter(this);
 
 
-
-
     }
 
     @Override
@@ -104,7 +102,7 @@ public class FeedActivity extends AppCompatActivity implements SearchView.OnQuer
             Toast.makeText(FeedActivity.this, "please enter text", Toast.LENGTH_SHORT).show();
         } else {
             searchList.clear();
-            if (modelArrayList!=null) {
+            if (modelArrayList != null) {
                 Iterator<FeedModel> iterator = modelArrayList.iterator();
                 while (iterator.hasNext()) {
                     FeedModel model = iterator.next();
@@ -132,81 +130,81 @@ public class FeedActivity extends AppCompatActivity implements SearchView.OnQuer
     }
 
     @Override
-        public boolean onQueryTextChange (String newText){
-            return false;
+    public boolean onQueryTextChange(String newText) {
+        return false;
+    }
+
+    @Override
+    public boolean onClose() {
+        return false;
+    }
+
+
+    class FeedFetchTask extends AsyncTask<String, Void, ArrayList<FeedModel>> {
+
+        @Override
+        protected void onPreExecute() {
+
         }
 
         @Override
-        public boolean onClose () {
-            return false;
-        }
 
-
-        class FeedFetchTask extends AsyncTask<String, Void, ArrayList<FeedModel>> {
-
-            @Override
-            protected void onPreExecute() {
-
-            }
-
-            @Override
-
-            protected ArrayList<FeedModel> doInBackground(String... strings) {
-                String link = strings[0];
-                InputStream inputStream = null;
-                ArrayList<FeedModel> feeds = new ArrayList<>();
-                ArrayList<Feed> retreivedFeed = new ArrayList<>();
+        protected ArrayList<FeedModel> doInBackground(String... strings) {
+            String link = strings[0];
+            InputStream inputStream = null;
+            ArrayList<FeedModel> feeds = new ArrayList<>();
+            ArrayList<Feed> retreivedFeed = new ArrayList<>();
+            try {
+                inputStream = new URL(link).openConnection().getInputStream();
+                retreivedFeed.add(EarlParser.parseOrThrow(inputStream, 0));
+                for (Feed feed : retreivedFeed) {
+                    for (Item item : feed.getItems()) {
+                        //add the data to your arraylist
+                        feeds.add(new FeedModel(item));
+                        //testingw
+                        //Log.i(TAG, "Item title: " + (item.getTitle() == null ? "N/A" : item.getTitle()));
+                        //Log.i(TAG, "Item author: " + (item.getAuthor() == null ? "N/A" : item.getAuthor()));
+                        Log.i(TAG, "Item description: " + (item.getDescription() == null ? "N/A" : item.getDescription()));
+                        Log.i(TAG, "Image link: " + (item.getImageLink() == null ? "N/A" : item.getImageLink()));
+                        //Log.i(TAG, "link: " + (item.getImageLink() == null ? "N/A" : item.getLink()));
+                    }
+                }
+            } catch (IOException e) {
+                e.printStackTrace();
+            } catch (DataFormatException e) {
+                e.printStackTrace();
+            } catch (XmlPullParserException e) {
+                e.printStackTrace();
+            } finally {
                 try {
-                    inputStream = new URL(link).openConnection().getInputStream();
-                    retreivedFeed.add(EarlParser.parseOrThrow(inputStream, 0));
-                    for (Feed feed : retreivedFeed) {
-                        for (Item item : feed.getItems()) {
-                            //add the data to your arraylist
-                            feeds.add(new FeedModel(item));
-                            //testingw
-                            //Log.i(TAG, "Item title: " + (item.getTitle() == null ? "N/A" : item.getTitle()));
-                            //Log.i(TAG, "Item author: " + (item.getAuthor() == null ? "N/A" : item.getAuthor()));
-                            Log.i(TAG, "Item description: " + (item.getDescription() == null ? "N/A" : item.getDescription()));
-                            Log.i(TAG, "Image link: " + (item.getImageLink() == null ? "N/A" : item.getImageLink()));
-                            //Log.i(TAG, "link: " + (item.getImageLink() == null ? "N/A" : item.getLink()));
-                        }
+
+                    if (inputStream != null) {
+                        inputStream.close();
                     }
                 } catch (IOException e) {
                     e.printStackTrace();
-                } catch (DataFormatException e) {
-                    e.printStackTrace();
-                } catch (XmlPullParserException e) {
-                    e.printStackTrace();
-                } finally {
-                    try {
-
-                        if (inputStream != null) {
-                            inputStream.close();
-                        }
-                    } catch (IOException e) {
-                        e.printStackTrace();
-                    }
                 }
-
-                return feeds;
             }
 
-
-            @Override
-            protected void onPostExecute(ArrayList<FeedModel> objects) {
-                updateRecyclerFeeds(objects);
-                flProgressContainer.setVisibility(View.GONE);
-            }
-
-            @Override
-            protected void onProgressUpdate(Void... values) {
-                super.onProgressUpdate(values);
-            }
-
-            public void onActivityStopped() {
-
-            }
+            return feeds;
         }
+
+
+        @Override
+        protected void onPostExecute(ArrayList<FeedModel> objects) {
+            updateRecyclerFeeds(objects);
+            flProgressContainer.setVisibility(View.GONE);
+        }
+
+        @Override
+        protected void onProgressUpdate(Void... values) {
+            super.onProgressUpdate(values);
+        }
+
+        public void onActivityStopped() {
+
+        }
+    }
 
     private void updateRecyclerFeeds(ArrayList<FeedModel> modelArrayList) {
         adapter.setListContent(modelArrayList);

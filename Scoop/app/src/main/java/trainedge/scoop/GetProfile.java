@@ -2,6 +2,7 @@ package trainedge.scoop;
 
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.net.Uri;
 import android.support.annotation.NonNull;
 import android.support.v4.app.FragmentActivity;
@@ -39,11 +40,26 @@ public class GetProfile extends AppCompatActivity {
     private FirebaseUser user;
     private FirebaseAuth mAuth;
     private FirebaseAuth.AuthStateListener mAuthListener;
+    private SharedPreferences pref;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        pref = getSharedPreferences("setting_pref", MODE_PRIVATE);
+        String theme = pref.getString("theme", "Default");
+        if (theme.equals("Blue")) {
+            setTheme(R.style.Bluetheme);
+        } else if (theme.equals("Black")) {
+            setTheme(R.style.BlackTheme);
+        } else if (theme.equals("White")) {
+            setTheme(R.style.WhiteTheme);
+        }
+        else if (theme.equals("Pink")) {
+            setTheme(R.style.PinkTheme);
+        }else {
+            setTheme(R.style.AppTheme_NoActionBar);
+        }
         setContentView(R.layout.activity_get_profile);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);

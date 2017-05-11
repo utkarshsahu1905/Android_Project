@@ -1,6 +1,7 @@
 package trainedge.scoop;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.RecyclerView;
@@ -30,6 +31,7 @@ public class ChoiceActivity extends AppCompatActivity implements AdapterView.OnI
     private FeedActivity adapter;
 
     private ProgressBar pbStatus;
+    private SharedPreferences pref;
 
 
     private RecyclerView rvCategory;
@@ -54,6 +56,21 @@ public class ChoiceActivity extends AppCompatActivity implements AdapterView.OnI
     protected void onCreate(Bundle savedInstanceState) {
 
         super.onCreate(savedInstanceState);
+
+        pref = getSharedPreferences("setting_pref", MODE_PRIVATE);
+        String theme = pref.getString("theme", "Default");
+        if (theme.equals("Blue")) {
+            setTheme(R.style.Bluetheme);
+        } else if (theme.equals("Black")) {
+            setTheme(R.style.BlackTheme);
+        } else if (theme.equals("White")) {
+            setTheme(R.style.WhiteTheme);
+        }
+        else if (theme.equals("Pink")) {
+            setTheme(R.style.PinkTheme);
+        }else {
+            setTheme(R.style.AppTheme_NoActionBar);
+        }
         setContentView(R.layout.activity_choice);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -86,17 +103,17 @@ public class ChoiceActivity extends AppCompatActivity implements AdapterView.OnI
         choicesPolitics.put("The Atlantic", R.string.theatlanti);
         choicesPolitics.put("Liberal Conspiracy", R.string.liberal);
         choicesPolitics.put("Weekly Sift", R.string.weekly);
-        choicesPolitics.put("Polling: Political Polls", R.string.newstates);
+        choicesPolitics.put("Polling:Political Polls", R.string.newstates);
         choicesPolitics.put("Snowblog", R.string.snow);
         choicesPolitics.put("Political Wire", R.string.political);
 
         choicesSport.put("ABC News: ESPN Sports", R.string.abcnewsespn);
         choicesSport.put("ANTARA News: Sports", R.string.antaranews);
-        choicesSport.put("The Washington Post", R.string.washington);
+        choicesSport.put("FightLine.com MMA News", R.string.fight);
         choicesSport.put("ESPN.com", R.string.espn);
         choicesSport.put("Fark.com", R.string.fark);
         choicesSport.put("For The Win", R.string.forthewin);
-        choicesSport.put("NBCSports", R.string.nbcsports);
+        choicesSport.put("Bloody Elbow", R.string.bloody);
 
 
         choicesFashion.put("Fashion Jobs", R.string.fashionjobs);
@@ -113,17 +130,17 @@ public class ChoiceActivity extends AppCompatActivity implements AdapterView.OnI
         choicesEducation.put("Book Basset", R.string.bookbasset);
         choicesEducation.put("Brain Pickings", R.string.brainpickings);
         choicesEducation.put("Creativity and Innovation", R.string.creativityandinnovation);
-        choicesEducation.put("Do Lectures", R.string.dolectures);
+        choicesEducation.put("Learning Pool Blog", R.string.learning);
         choicesEducation.put("Learn Anything Network", R.string.learnanythingnetwork);
-        choicesEducation.put("SchoolTech for Students", R.string.schooltech);
+        choicesEducation.put("Elearning Lounge", R.string.elearn);
 
-        choicesBusiness.put("Her Two Cents", R.string.hertwocents);
+        choicesBusiness.put("Both Sides of the Table", R.string.hertwocents);
         choicesBusiness.put("Calculated Risk", R.string.calculatedrisk);
         choicesBusiness.put("Naked Capitalism", R.string.nakedcapitalism);
         choicesBusiness.put("The Atlantic - Business", R.string.theatlantic);
         choicesBusiness.put("Entrepreneur", R.string.entrepreneur);
-        choicesBusiness.put("HBR.org", R.string.hbr);
-        choicesBusiness.put("BusinessWeek.com", R.string.bw);
+        choicesBusiness.put("Chief Marketing Technologist", R.string.hbr);
+        choicesBusiness.put("Marginal Revolution", R.string.bw);
         choicesBusiness.put("Capital Business", R.string.cb);
 
         choicesTravel.put("Beautiful Place To Visit", R.string.beautifulplace);
@@ -134,13 +151,13 @@ public class ChoiceActivity extends AppCompatActivity implements AdapterView.OnI
 
         choicesFood.put("101 CookBooks", R.string.cookbook);
         choicesFood.put("American Drink", R.string.american);
-        choicesFood.put("Gardening", R.string.gardening);
+        choicesFood.put("BigOven.com - Recipe Of the Day", R.string.big);
         choicesFood.put("tastebook", R.string.tastebook);
         choicesFood.put("Recipes and Menus", R.string.recipes);
-        choicesFood.put("Make it Tonight", R.string.makeit);
+        choicesFood.put("Chickens in the Road", R.string.chickens);
         choicesFood.put("CakeWrecks", R.string.cake);
 
-        choicesNews.put("3 News", R.string.news3);
+        choicesNews.put("All Global News on One Page", R.string.news3);
         choicesNews.put("Five ThirtyEight", R.string.five);
         choicesNews.put("Rivva", R.string.rivva);
         choicesNews.put("ABC News", R.string.abc);

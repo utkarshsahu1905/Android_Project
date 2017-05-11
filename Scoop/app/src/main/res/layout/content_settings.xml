@@ -49,8 +49,8 @@
 
     <TextView
         android:id="@+id/textView10"
-        android:layout_width="0dp"
-        android:layout_height="43dp"
+        android:layout_width="174dp"
+        android:layout_height="41dp"
         android:layout_marginBottom="21dp"
         android:layout_marginEnd="2dp"
         android:layout_marginLeft="1dp"
@@ -59,7 +59,7 @@
         android:layout_marginTop="22dp"
         android:paddingLeft="8dp"
         android:paddingTop="10dp"
-        android:text="Night Mode"
+        android:text="Theme Colors"
         android:textColor="@color/cardview_light_background"
         android:textSize="20sp"
         app:layout_constraintBottom_toTopOf="@+id/textView8"
@@ -69,31 +69,15 @@
         tools:layout_constraintBottom_creator="1"
         tools:layout_constraintLeft_creator="1"
         tools:layout_constraintRight_creator="1"
-        tools:layout_constraintTop_creator="1" />
-
-    <Switch
-        android:id="@+id/switch_mode"
-        android:layout_width="106dp"
-        android:layout_height="41dp"
-        android:layout_marginBottom="58dp"
-        android:layout_marginEnd="36dp"
-        android:layout_marginRight="36dp"
-        android:layout_marginTop="60dp"
-        app:layout_constraintBottom_toBottomOf="@+id/notif"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/textView9"
-        tools:layout_constraintBottom_creator="1"
-        tools:layout_constraintRight_creator="1"
-        tools:layout_constraintTop_creator="1" />
+        tools:layout_constraintTop_creator="1"
+        app:layout_constraintHorizontal_bias="0.021" />
 
     <Switch
         android:id="@+id/notif"
         android:layout_width="0dp"
         android:layout_height="35dp"
-        app:layout_constraintLeft_toLeftOf="@+id/switch_mode"
         app:layout_constraintRight_toRightOf="@+id/quality"
         app:layout_constraintTop_toTopOf="@+id/textView8"
-        tools:layout_constraintLeft_creator="1"
         tools:layout_constraintRight_creator="1"
         tools:layout_constraintTop_creator="1" />
 
@@ -101,18 +85,27 @@
         android:id="@+id/quality"
         android:layout_width="133dp"
         android:layout_height="42dp"
-        android:layout_marginBottom="22dp"
         android:layout_marginEnd="38dp"
         android:layout_marginRight="38dp"
         android:layout_marginTop="32dp"
-        app:layout_constraintBottom_toTopOf="@+id/switch_mode"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0"
-        tools:layout_constraintBottom_creator="1"
         tools:layout_constraintRight_creator="1"
-        tools:layout_constraintTop_creator="1"
-        tools:layout_editor_absoluteX="189dp"
-        tools:layout_editor_absoluteY="28dp" />
+        tools:layout_constraintTop_creator="1" />
+
+    <Spinner
+        android:id="@+id/theme"
+        android:layout_width="112dp"
+        android:layout_height="41dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintBottom_toTopOf="@+id/notif"
+        app:layout_constraintHorizontal_bias="0.268"
+        app:layout_constraintLeft_toRightOf="@+id/textView10"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/quality"
+        app:layout_constraintVertical_bias="0.52" />
 
 </android.support.constraint.ConstraintLayout>

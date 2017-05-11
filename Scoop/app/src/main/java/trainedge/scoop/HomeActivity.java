@@ -45,10 +45,9 @@ import com.squareup.picasso.Transformation;
 import java.util.ArrayList;
 
 
-
 public class HomeActivity extends AppCompatActivity
 
-         implements NavigationView.OnNavigationItemSelectedListener, CompoundButton.OnCheckedChangeListener, View.OnClickListener, GoogleApiClient.OnConnectionFailedListener {
+        implements NavigationView.OnNavigationItemSelectedListener, CompoundButton.OnCheckedChangeListener, View.OnClickListener, GoogleApiClient.OnConnectionFailedListener {
 
     private SharedPreferences pref;
     private static final int REQUEST_INVITE = 0;
@@ -68,8 +67,26 @@ public class HomeActivity extends AppCompatActivity
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        pref = getSharedPreferences("setting_pref", MODE_PRIVATE);
+        String theme = pref.getString("theme", "Default");
+        if (theme.equals("Blue")) {
+            setTheme(R.style.Bluetheme);
+        } else if (theme.equals("Black")) {
+            setTheme(R.style.BlackTheme);
+        } else if (theme.equals("White")) {
+            setTheme(R.style.WhiteTheme);
+        }
+        else if (theme.equals("Pink")) {
+            setTheme(R.style.PinkTheme);
+        }else {
+            setTheme(R.style.AppTheme_NoActionBar);
+        }
+
+
         setContentView(R.layout.activity_home);
+
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+
         setSupportActionBar(toolbar);
         //Button lgt =
 
@@ -78,7 +95,9 @@ public class HomeActivity extends AppCompatActivity
 //objt
         //lgt.setOnClickListener(this);
 
-        mAuthListener = new FirebaseAuth.AuthStateListener() {
+        mAuthListener = new FirebaseAuth.AuthStateListener()
+
+        {
 
             @Override
             public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
@@ -92,7 +111,9 @@ public class HomeActivity extends AppCompatActivity
                     // }
                 }
             }
-        };
+        }
+
+        ;
 
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -105,16 +126,21 @@ public class HomeActivity extends AppCompatActivity
         navigationView.setNavigationItemSelectedListener(this);
 
         headerView = navigationView.getHeaderView(0);
+
         updateui(headerView);
 
         CategoryList = new ArrayList<>();
 
 
-        rvCategory = (RecyclerView) findViewById(R.id.rvCategory);
+        rvCategory = (RecyclerView)
+
+                findViewById(R.id.rvCategory);
+
         GridLayoutManager manager = new GridLayoutManager(this, 2);
 
 
         rvCategory.setLayoutManager(manager);
+
         generateCategories();
 
     }
@@ -339,6 +365,7 @@ public class HomeActivity extends AppCompatActivity
                 .transform(new CircleTransform())
                 .into(imageView);
     }
+
     private class CircleTransform implements Transformation {
         @Override
         public Bitmap transform(Bitmap source) {

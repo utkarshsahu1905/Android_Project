@@ -33,17 +33,17 @@
     <!--<string name="bookbasset">Book Basset</string>-->
     <!--<string name="brainpickings">Brain Pickings</string>-->
     <!--<string name="creativityandinnovation"Creativity and Innovation</string>-->
-    <!--<string name="dolectures">Do Lectures</string>-->
+    <!--<string name="learning">Learning Pool Blog</string>-->
     <!--<string name="learnanythingnetwork">Learn Anything Network</string>-->
-    <!--<string name="schooltech">SchoolTech for Students</string>-->
+    <!--<string name="elearn">Elearning Lounge</string>-->
 
-    <!--<string name="hertwocents"> Her Two Cents</string>-->
+    <!--<string name="hertwocents">Both Sides of the Table</string>-->
     <!--<string name="calculatedrisk">Calculated Risk</string>-->
     <!--<string name="nakedcapitalism">Naked Capitalism</string>-->
     <!--<string name="theatlantic">The Atlantic - Business</string>-->
     <!--<string name="entrepreneur">Entrepreneur</string>-->
-    <!--<string name="hbr">HBR.org</string>-->
-    <!--<string name="bw">BusinessWeek.com</string>-->
+    <!--<string name="hbr">Chief Marketing Technologist</string>-->
+    <!--<string name="bw">Marginal Revolution</string>-->
     <!--<string name="cb">Capital Business</string>-->
 
     <!--<string name="beautifulplace">Beautiful Place To Visit</string>-->
@@ -61,19 +61,19 @@
 
     <!--<string name="cookbook">101 CookBooks</string>-->
     <!--<string name="american">American Drink</string>-->
-    <!--<string name="gardening">Gardening</string>-->
+    <!--<string name="food">BigOven.com - Recipe Of the Day</string>-->
     <!--<string name="tastebook">TasteBook</string>-->
     <!--<string name="recipes">Recipes and Menus</string>-->
-    <!--<string name="makeit">Make it Tonight</string>-->
+    <!--<string name="chickens">Chickens in the Road</string>-->
     <!--<string name="cake">CakeWrecks</string>-->
 
     <!--<string name="abcnewsespn">ABC News: ESPN Sports</string>-->
     <!--<string name="antaranews">ANTARA News: Sports</string>-->
-    <!--<string name="washington">The Washington Post</string>-->
+    <!--<string name="fight">FightLine.com MMA News</string>-->
     <!--<string name="espn">ESPN.com</string>-->
     <!--<string name="fark">Fark.com</string>-->
     <!--<string name="forthewin">For The Win</string>-->
-    <!--<string name="nbcsports">NBCSports</string>-->
+    <!--<string name="bloody">Bloody Elbow</string>-->
 
     <!--<string name="gotta">Gottabemobile</string>-->
     <!--<string name="tools">Tools and Toys</string>-->
@@ -81,7 +81,7 @@
     <!--<string name="slash">SlashGear</string>-->
     <!--<string name="newl">Newlaunches</string>-->
 
-    <!--<string name="news3">3 News</string>-->
+    <!--<string name="news3">All Global News on One Page</string>-->
     <!--<string name="five">Five ThirtyEight</string>-->
     <!--<string name="rivva">Rivva</string>-->
     <!--<string name="abc">ABC News</string>-->
@@ -107,19 +107,21 @@
     <!--<string name="snow">Snowblog</string>-->
     <!--<string name="political">Political Wire</string>-->
 
-    <string-array name="lang">
-        <item>English</item>
-        <item>Hindi</item>
+
+    <string-array name="theme">
+        <item>Default</item>
+        <item>Blue</item>
+        <item>Black</item>
+        <item>White</item>
+        <item>Pink</item>
     </string-array>
+
     <string-array name="quality">
         <item>High</item>
         <item>Medium</item>
         <item>Low</item>
     </string-array>
-    <string-array name="font">
-        <item>Bold</item>
-        <item>Italic</item>
-    </string-array>
+
     <string name="title_activity_favorites">Favorites</string>
     <string name="large_text">
         "Material is the metaphor.\n\n"
